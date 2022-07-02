@@ -1,0 +1,136 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="6" mobile-colspan="12">
+        <cwc-button (click)="goUsers()" variant="link" leading-icon="arrow-left-single">Usuarios actuales</cwc-button>
+        <h2 class="title-profile">Luis Felipe Guerra</h2>
+
+        <div class="content-btn-assign-trip">
+            <cwc-button (click)="assignTrip()" variant="primary" design-version="v2">Asignar viaje</cwc-button>
+        </div>  
+       
+        <cwc-card class="m-all-xs" design-version="v2">
+            <div class="main-content-card">
+                <div class="header-card">
+                    <div class="avatar-info">
+                        <!-- <cwc-avatar size="small" variant="positive" name="Michael Wasserman" class="m-h-xs"></cwc-avatar> -->
+                        <cwc-avatar 
+                            size="small"
+                            image-source="https://scstdcnxdsld01.z21.web.core.windows.net/dls/assets/samples/images/uploaded-picture-2.jpg"
+                            name="Michael Wasserman"
+                            class="m-h-xs"
+                        ></cwc-avatar>
+                        <span class="style-name">Luis Felipe Guerra</span>
+                    </div>  
+
+                    <div class="content-status">
+                        <div class="active"></div>
+                        <span>Activo</span>
+                    </div>
+                 
+                    <div>
+                        <cwc-status-indicator variant='alert'>
+                            En turno
+                        </cwc-status-indicator>
+                    </div>
+                </div>    
+
+                <hr class="line">
+
+                <cwc-grid class="demo-grid" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div>
+                            <div class="attr-user">Celular</div>
+                            <cwc-icon name="phone" size="14px" color="true-black"></cwc-icon>
+                            <span class="number-phone">3001234567</span>
+                            <cwc-button (click)="callUser()" variant="link">llamar</cwc-button>
+                        </div>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">  
+                        <div class="attr-user">Código SAP</div>
+                        <span>12345qwer</span>
+                    </cwc-cell>
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid center-cell" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">NIT</div>
+                        <span>987654321</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">   
+                        <div class="attr-user">Correo electrónico</div>
+                        <span>luisf.castillo@gmail.com</span>
+                    </cwc-cell>
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">Empresa</div>
+                        <span>Transportes Logísticos S.A.</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">  
+                        <div class="content-btn-edit">
+                            <div>
+                                <div class="attr-user">Rol</div>
+                                <span>Admin. Logístico</span>
+                            </div> 
+                            <cwc-button (click)="editDataUser()" variant="link">Editar datos</cwc-button>
+                        </div> 
+                    </cwc-cell>
+                </cwc-grid>                
+            </div>
+        </cwc-card>
+
+        <cwc-card class="m-all-xs card-docs" design-version="v2">
+            <div class="main-content-card">
+                <div class="title-docs">Documentación</div>
+
+                <div class="content-docs">
+                    <div>
+                        <div class="item-archives">
+                            <cwc-icon></cwc-icon>
+                            <span class="text-archive">Licencia de conducir</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon></cwc-icon>
+                            <span class="text-archive">Carné de Seguridad Idustrial y Vial</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon></cwc-icon>
+                            <span class="text-archive">Cédula de ciudadania</span>
+                        </div>
+                    </div>
+
+                    <div class="content-action-docs">
+                        <cwc-button (click)="updateDocumentsUser()" variant="link">Actualizar documentos</cwc-button>
+                    </div>
+                </div>
+            </div>
+        </cwc-card>
+    </cwc-cell>
+</cwc-grid>
+
+
+<!-- Modal asignar cita -->
+<cwc-modal id='modal-assign-trip' (cwcClose)="closeModalAssignTrip($event)" width="200px">
+    <div *ngIf="showModalTrip" class="content-info-modal">
+        <h3 class='modal--confirmation__message'>Asignar Viaje</h3>
+
+        <cwc-picker class="picker input-select" label="" placeholder="Seleccionar">
+            <option value="1">Viaje 23456246, 7:30 am</option>
+            <option value="2">Viaje 23456246, 8:30 am</option>
+            <option value="3">Viaje 23456246, 9:30 am</option>
+            <option value="4">Viaje 23456246, 10:30 am</option>
+        </cwc-picker>
+
+        <cwc-button (click)="assignTripUser()" variant="primary-block" design-version="v2">Aceptar</cwc-button>
+    </div>
+</cwc-modal>
+
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-confirm' (cwcClose)="closeModalConfirm($event)">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>El viaje ha sido asignado de manera exitosa.</h3>
+    </div>
+</cwc-modal>
+

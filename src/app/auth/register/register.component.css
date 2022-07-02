@@ -1,0 +1,43 @@
+.content-main-login {
+    height: 100vh;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+.title-login {
+    margin-bottom: 2rem;
+}
+.input-login {
+    width: 100%;
+    padding-bottom: 0.5rem;
+    justify-content: b;   
+}
+
+.content-reset-password {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.loading-content {
+    top: 0;
+}
+
+.content-line-login{
+    display: flex;
+    justify-content: center;    
+}
+.text-not-account{
+    color: #002a59 !important;
+    font-weight: lighter;
+
+}
+.text-not-account span{
+    color: #3FA9F5 !important;
+    font-weight: lighter;
+}

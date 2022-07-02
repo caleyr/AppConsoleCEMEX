@@ -1,0 +1,95 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="2" mobile-colspan="6">
+        <p style="margin-top: 22px;" size="medium">Seleccionar fecha</p>
+    </cwc-cell>
+    <cwc-cell colspan="7" mobile-colspan="6">
+        <cwc-select variant="no-border" placeholder="Select Jobsite" class="select-date">
+            <cwc-select-option  value="First Avenue" selected>27 Agosto, 2020</cwc-select-option>
+        </cwc-select>
+    </cwc-cell>
+
+    <cwc-cell colspan="3" mobile-colspan="12">
+        <div class="content-filters">
+            <cwc-picker class="picker select-filters select-rol" label="Empresa" placeholder="Seleccionar">
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+            </cwc-picker>
+        </div>
+    </cwc-cell>
+
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <div class='p-all-sm' style='background: #F4F6F9'>
+            <cwc-table-wrapper>
+                <table class='action'>
+                    <thead>
+                        <tr>
+                            <th> Viaje </th>
+                            <th> Status </th>
+                            <th> Fecha de viaje </th>
+                            <th> Hora de Salida </th>
+                            <th> Origen </th> 
+                            <th> Destino </th>   
+                            <th> Placa vehículo </th>                      
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cta" (click)="detailTrip('id')">
+                            <td>12345678</td>
+                            <td>
+                                <cwc-status-indicator variant='alert'>
+                                    En turno
+                                </cwc-status-indicator>
+                            </td>
+                            <td>Aug 25, 2020</td>
+                            <td>8:00 am</td>
+                            <td>CEMEX Planta Bogotá</td>
+                            <td>Cerrada Lorna  Alta 110</td>
+                            <td>12345678</td>
+                        </tr>                        
+                        <tr class="cta">
+                            <td>12345678</td>
+                            <td>
+                                <cwc-status-indicator variant='alert'>
+                                    En turno
+                                </cwc-status-indicator>
+                            </td>
+                            <td>Aug 25, 2020</td>
+                            <td>8:00 am</td>
+                            <td>CEMEX Planta Bogotá</td>
+                            <td>Cerrada Lorna  Alta 110</td>
+                            <td>12345678</td>
+                        </tr> 
+                        <tr class="cta">
+                            <td>12345678</td>
+                            <td>
+                                <cwc-status-indicator variant='alert'>
+                                    En turno
+                                </cwc-status-indicator>
+                            </td>
+                            <td>Aug 25, 2020</td>
+                            <td>8:00 am</td>
+                            <td>CEMEX Planta Bogotá</td>
+                            <td>Cerrada Lorna  Alta 110</td>
+                            <td>12345678</td>
+                        </tr> 
+                        <tr class="cta">
+                            <td>12345678</td>
+                            <td>
+                                <cwc-status-indicator variant='alert'>
+                                    En turno
+                                </cwc-status-indicator>
+                            </td>
+                            <td>Aug 25, 2020</td>
+                            <td>8:00 am</td>
+                            <td>CEMEX Planta Bogotá</td>
+                            <td>Cerrada Lorna  Alta 110</td>
+                            <td>12345678</td>
+                        </tr>                 
+                    </tbody>
+                </table>
+            </cwc-table-wrapper>        
+        </div>
+    </cwc-cell>
+</cwc-grid>

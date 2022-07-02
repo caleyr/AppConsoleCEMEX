@@ -1,0 +1,76 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="6" mobile-colspan="12">
+        <h3>Solicitudes (3)</h3>
+    </cwc-cell>
+
+    <cwc-cell colspan="6" mobile-colspan="12">
+        <div class="content-filters">
+            <cwc-picker class="picker select-filters" label="Empresa" placeholder="Seleccionar">
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+            </cwc-picker>
+
+            <cwc-picker class="picker select-filters select-rol" label="Rol" placeholder="Seleccionar">
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+            </cwc-picker>
+        </div>
+    </cwc-cell>
+
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <div class='p-all-sm' style='background: #F4F6F9'>
+            <cwc-table-wrapper>
+                <table class='action'>
+                    <thead>
+                        <tr>
+                            <th> Nombre </th>
+                            <th> Rol </th>
+                            <th> Status </th>
+                            <th> Celular </th>
+                            <th> Empresa </th>                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cta" (click)="detailUser('Luis')">
+                            <td>Luis Felipe Guerra</td>
+                            <td>Conductor</td>
+                            <td>
+                                <cwc-status-indicator variant='alert'>
+                                    Pendiente por aprobar
+                                </cwc-status-indicator>
+                            </td>
+                            <td>3001234567</td>
+                            <td>Transportes logísticos S.A.</td>
+                        </tr>                        
+                        <tr class="cta" (click)="detailUser('Luis')">
+                            <td>Luis Felipe Guerra</td>
+                            <td>Conductor</td>
+                            <td>
+                                <cwc-status-indicator variant='alert'>
+                                    Pendiente por aprobar
+                                </cwc-status-indicator>
+                            </td>
+                            <td>3001234567</td>
+                            <td>Transportes logísticos S.A.</td>
+                        </tr>                        
+                        <tr class="cta" (click)="detailUser('Luis')">
+                            <td>Luis Felipe Guerra</td>
+                            <td>Conductor</td>
+                            <td>
+                                <cwc-status-indicator variant='alert'>
+                                    Pendiente por aprobar
+                                </cwc-status-indicator>
+                            </td>
+                            <td>3001234567</td>
+                            <td>Transportes logísticos S.A.</td>
+                        </tr>                 
+                    </tbody>
+                </table>
+            </cwc-table-wrapper>        
+        </div>
+    </cwc-cell>
+</cwc-grid>

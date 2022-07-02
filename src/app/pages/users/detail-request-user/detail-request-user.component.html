@@ -1,0 +1,135 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="6" mobile-colspan="12">
+        <cwc-button (click)="goUsers()" variant="link" leading-icon="arrow-left-single">Solicitud de usuarios</cwc-button>
+        <h2 class="title-profile">Luis Felipe Guerra</h2>
+       
+        <cwc-card class="m-all-xs" design-version="v2">
+            <div class="main-content-card">
+                <div class="header-card">
+                    <div class="avatar-info">
+                        <!-- <cwc-avatar size="small" variant="positive" name="Michael Wasserman" class="m-h-xs"></cwc-avatar> -->
+                        <cwc-avatar 
+                            size="small"
+                            image-source="https://scstdcnxdsld01.z21.web.core.windows.net/dls/assets/samples/images/uploaded-picture-2.jpg"
+                            name="Michael Wasserman"
+                            class="m-h-xs"
+                        ></cwc-avatar>
+                        <span class="style-name">Luis Felipe Guerra</span>
+                    </div>  
+                                     
+                    <div>
+                        <cwc-status-indicator variant='alert'>
+                            Pendiente
+                        </cwc-status-indicator>
+                    </div>
+                </div>    
+
+                <hr class="line">
+
+                <cwc-grid class="demo-grid" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div>
+                            <div class="attr-user">Celular</div>
+                            <cwc-icon name="phone" size="14px" color="true-black"></cwc-icon>
+                            <span class="number-phone">3001234567</span>
+                            <cwc-button (click)="callUser()" variant="link">llamar</cwc-button>
+                        </div>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">  
+                        <div class="attr-user">Código SAP</div>
+                        <span>12345qwer</span>
+                    </cwc-cell>
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid center-cell" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">NIT</div>
+                        <span>987654321</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">   
+                        <div class="attr-user">Correo electrónico</div>
+                        <span>luisf.castillo@gmail.com</span>
+                    </cwc-cell>
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">Empresa</div>
+                        <span>Transportes Logísticos S.A.</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">  
+                        <div class="content-btn-edit">
+                            <div>
+                                <div class="attr-user">Rol</div>
+                                <span>Admin. Logístico</span>
+                            </div>                             
+                        </div> 
+                    </cwc-cell>
+                </cwc-grid>                
+            </div>
+        </cwc-card>
+
+        <cwc-card class="m-all-xs card-docs" design-version="v2">
+            <div class="main-content-card">
+                <div class="title-docs">Documentación</div>
+
+                <div class="content-docs">
+                    <div>
+                        <div class="item-archives">
+                            <cwc-icon></cwc-icon>
+                            <span class="text-archive">Licencia de conducir</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon></cwc-icon>
+                            <span class="text-archive">Carné de Seguridad Idustrial y Vial</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon></cwc-icon>
+                            <span class="text-archive">Cédula de ciudadania</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </cwc-card>
+    </cwc-cell>
+</cwc-grid>
+
+<!-- footer -->
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <div class="footer-detal-request">
+            <div class="content-btns">
+                <cwc-button (click)="rejectRequest()" variant="support" design-version="v2"><span class="text-btn">Rechazar</span></cwc-button>
+                <cwc-button (click)="acceptRequest()" class="btn-action" variant="primary" design-version="v2">Aceptar solicitud</cwc-button>
+            </div>
+        </div>
+    </cwc-cell>
+</cwc-grid>
+
+
+<!-- Modal asignar cita -->
+<cwc-modal id='modal-reject-request' (cwcClose)="closeModalRejectRequest($event)" width="200px">
+    <div *ngIf="showModalReject" class="content-info-modal">
+        <h3 class='modal--confirmation__message'>Seleccione un motivo por el cual rechaza la solicitud</h3>
+
+        <cwc-radio-group name='heroes'>
+            <cwc-radio value='2'>Falta de documentación</cwc-radio><br/>
+            <cwc-radio value='3'>Los datos no coinciden</cwc-radio><br/>
+            <cwc-radio value='5'>Su transportadora actualmente no es cliente</cwc-radio><br/>
+            <cwc-radio value='1'>Otro</cwc-radio>
+        </cwc-radio-group>  
+
+        <cwc-button (click)="modalBtnAccept()" variant="primary-block" design-version="v2">Aceptar</cwc-button>
+    </div>
+</cwc-modal>
+
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-confirm-reject-request' (cwcClose)="closeModalConfirmReject($event)">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>El conductor ha sido rechazado, se le notificará al<br/>
+            conductor para hacer seguimiento de su solicitud.</h3>
+    </div>
+</cwc-modal>
+

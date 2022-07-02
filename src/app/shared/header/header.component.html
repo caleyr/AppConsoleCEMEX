@@ -1,0 +1,54 @@
+<cwc-header show-cemex-logo="true" show-Menu-Button="true" design-version="v2">
+    <cwc-overlay min-width="300px" variant="popover" height="286px">
+        <div slot="target" class="flex flex__align--center m-end-xs">
+            <cwc-button variant="link" leading-icon="notification" white size="medium" class="m-end-xs">Notificaciones</cwc-button>
+            <!-- <cwc-button variant="link" leading-icon="notification" white size="medium" class="m-end-xs">Notificaciones</cwc-button> -->
+            <!-- <div class="display-inline-block p-all-xs border-radius--circle bg--true-red" 
+            style="width: 1rem; height: 1rem; text-align: center; line-height: 1rem;">2</div> -->
+        </div>
+
+        <div slot="content">
+            <div class="p-h-xs wrapper">
+                <div class="p-all-sm font--dark-grey flex" style="border-bottom: 1px dashed #d6d6d6">
+                    <cwc-icon name="information-rounded-fill" size="1.5rem" color="bright-blue" class="m-end-sm"></cwc-icon>
+                    <div>
+                        <h5 style="margin: 0">Customer Information</h5>
+                        <p class="font-size-12">The jobsite <b>Wilder Ranch</b> has just been created. Would you like to place an order?</p>
+                        <div class="text-end">
+                            <cwc-button variant="link">Order</cwc-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-h-xs wrapper">
+                <div class="p-all-sm font--dark-grey flex">
+                    <cwc-icon name="check-rounded-active-fill" size="1.5rem" color="bright-green" class="m-end-sm"></cwc-icon>
+                    <div>
+                        <h5 style="margin:0">Quotation and Pricing</h5>
+                        <p class="font-size-12"><b>2311112 - Rideback Eastern River Valley</b> You have a new quotation ready for review.</p>
+                        <div class="text-end">
+                            <cwc-button variant="link">Review</cwc-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-end" style="border-top: 1px dashed #d6d6d6">
+                <cwc-button variant="link" size="medium" class="p-all-sm">View All Notifications</cwc-button>
+            </div>
+        </div>
+    </cwc-overlay>
+    
+    <div (click)="goProfile()" class="content-avatar-profile">        
+        <cwc-avatar 
+            *ngIf="photoUser; else noContent"
+            size="small"
+            image-source="https://scstdcnxdsld01.z21.web.core.windows.net/dls/assets/samples/images/uploaded-picture-2.jpg"
+            name="Michael Wasserman"
+            class="m-h-xs"
+        ></cwc-avatar>
+
+        <ng-template #noContent>
+            <cwc-avatar size="small" variant="positive" [name]="fullNameUser" class="m-h-xs"></cwc-avatar>
+        </ng-template>
+    </div>    
+</cwc-header>  

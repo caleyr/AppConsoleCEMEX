@@ -1,0 +1,37 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <cwc-button variant="link" leading-icon="arrow-left-single">Atrás</cwc-button>
+        <h2 class="title-profile">Viajes</h2>
+
+        <div class="main-content-search">
+            <div class="content-search">     
+                <cwc-input class='input' trailing-icon='magnifier-glass' placeholder='Buscar...'></cwc-input>
+        
+                <div class="content-btn-search">
+                    <cwc-button (click)="addNewTrip()" class="btn-add-user" variant='primary' designVersion="v2">
+                        <cwc-icon class="icon-add" name="plus" size="12px" color="true-white"></cwc-icon>
+                        Agregar Viaje
+                    </cwc-button>
+                </div>
+            </div>
+        </div>
+
+        <cwc-tabs (cwcTabActivated)="cwcTabActivated($event)">
+            <cwc-tab name='anteriores' active='true'>Anteriores</cwc-tab>
+            <cwc-tab name='programados'>Programados</cwc-tab>
+            <cwc-tab name='solicitudes'>Solicitudes</cwc-tab>
+        </cwc-tabs>
+
+        <div class="tabs-users-content">
+            <div *ngIf="tabPreviousTrips">
+                <app-tab-previous-trips></app-tab-previous-trips>
+            </div>
+            <div *ngIf="tabScheduledTrips">
+                <app-tab-scheduled-trips></app-tab-scheduled-trips>
+            </div>
+            <div *ngIf="tabTripsRequests">
+                <app-tab-trips-requests></app-tab-trips-requests>
+            </div>
+        </div>
+    </cwc-cell>
+</cwc-grid>

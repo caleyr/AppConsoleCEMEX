@@ -1,0 +1,44 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="6" mobile-colspan="12">
+        <cwc-button  variant="link" leading-icon="arrow-left-single" (click)="buttonBack()" >Empresas</cwc-button>
+        <h2 class="title-profile">{{company.companyName}}</h2>
+
+        <cwc-card class="m-all-xs card-docs" design-version="v2">
+            <div class="main-content-card">
+
+                <cwc-grid class="demo-grid" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div>
+                            <div class="attr-user">Código de proveedor adicional</div>
+                            <span>{{company.codeSap}}</span>
+                            <div class="content-action-docs">
+                                <cwc-button variant="link">Actualizar documentos</cwc-button>
+                            </div>
+                        </div>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">  
+                        <div class="title-docs">Documentación</div>
+
+                        <div class="content-docs">
+                            <div>
+                                <div class="item-archives">
+                                    <cwc-icon></cwc-icon>
+                                    <span class="text-archive">Licencia de conducir</span>
+                                </div>
+                                <div class="item-archives">
+                                    <cwc-icon></cwc-icon>
+                                    <span class="text-archive">Carné de Seguridad Idustrial y Vial</span>
+                                </div>
+                                <div class="item-archives">
+                                    <cwc-icon></cwc-icon>
+                                    <span class="text-archive">Cédula de ciudadania</span>
+                                </div>
+                            </div>                            
+                        </div>
+                    </cwc-cell>
+                </cwc-grid>                
+            </div>
+        </cwc-card>
+    </cwc-cell>
+</cwc-grid>
+

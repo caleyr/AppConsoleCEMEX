@@ -1,0 +1,133 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <cwc-button (click)="goInfoUsers()" variant="link" leading-icon="arrow-left-single">información usuario</cwc-button>
+        <h2 class="title-form">Editar usuario</h2>
+    </cwc-cell>       
+
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <form [formGroup]="formUpdateDriver" (submit)="updateDriver()">
+            <cwc-grid class="demo-grid">
+                <cwc-cell colspan="5" mobile-colspan="12">   
+                    <cwc-picker 
+                        formControlName="rol"
+                        [status]="getStatusField('rol')"
+                        [statusMessage]="getMsgField('rol', 'Rol')"
+                        required="true"
+                        class="picker input-update-user" 
+                        label="Rol" 
+                        placeholder="Seleccionar">                
+                        <option value="AL">Rol 1</option>
+                        <option value="AK">Rol 2</option>
+                        <option value="AZ">Rol 3</option>
+                        <option value="AR">Rol 4</option>
+                    </cwc-picker>
+
+                    <cwc-input 
+                        formControlName="name"
+                        [status]="getStatusField('name')"
+                        [statusMessage]="getMsgField('name', 'nombre(s)')"
+                        required="true"
+                        label='Nombre(s)' 
+                        class='input-update-user' 
+                        placeholder="Escribe tu Nombre"></cwc-input>
+
+                    <cwc-input 
+                        formControlName="lastName"
+                        [status]="getStatusField('lastName')"
+                        [statusMessage]="getMsgField('lastName', 'apellidos')"
+                        required="true"
+                        label='Apellidos' 
+                        class='input-update-user' 
+                        placeholder="Apellido paterno y materno"></cwc-input>
+                    
+                    <cwc-input
+                        formControlName="phone"
+                        [status]="getStatusField('phone')"
+                        [statusMessage]="getMsgField('phone', 'número de celular')" 
+                        required="true"
+                        label='Número de celular' 
+                        class='input-update-user' 
+                        placeholder="Agrega un número de telefono"></cwc-input>     
+
+                    <cwc-input
+                        formControlName="sap"
+                        [status]="getStatusField('sap')"
+                        [statusMessage]="getMsgField('sap', 'número de celular')" 
+                        required="true"
+                        label='Código SAP' 
+                        class='input-update-user' 
+                        placeholder="Agrega el código SAP"></cwc-input> 
+                </cwc-cell>
+
+                <cwc-cell colspan="5" mobile-colspan="12">
+                    <cwc-input
+                        formControlName="identification"
+                        [status]="getStatusField('identification')"
+                        [statusMessage]="getMsgField('identification', 'NIT o CC')" 
+                        required="true"
+                        label='NIT o CC' 
+                        class='input-update-user' 
+                        placeholder="Escribir números sin guiones ni espacios"></cwc-input>
+
+                    <cwc-input
+                        formControlName="email"
+                        [status]="getStatusField('email')"
+                        [statusMessage]="getMsgField('email', 'correo electrónico')" 
+                        type="email"
+                        required="true"
+                        label='Correo electrónico' 
+                        class='input-update-user' 
+                        placeholder="Agrega tu correo electrónico"></cwc-input>        
+
+                    <cwc-picker 
+                        formControlName="company"
+                        [status]="getStatusField('company')"
+                        [statusMessage]="getMsgField('company', 'empresa')"
+                        (cwcChange)="changeSelectCompany($event)"
+                        required="true"
+                        class="picker input-update-user" 
+                        label="Empresa" 
+                        placeholder="Seleccionar">                
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                    </cwc-picker>
+
+                    <cwc-radio-group name='status' label='Estatus del usuario'>
+                        <cwc-radio value='1' checked class="input-radio-user">Activo</cwc-radio>
+                        <cwc-radio value='2'>Inactivo</cwc-radio>
+                    </cwc-radio-group>
+                </cwc-cell>   
+
+                <cwc-cell colspan="5" mobile-colspan="12">
+                    <cwc-checkbox
+                        formControlName="term"
+                        [status]="getStatusField('term')"
+                        required="true" 
+                        class='m-end-sm input-check-user'>Confirmo que la siguiente información es verdadera. </cwc-checkbox>
+
+                    <cwc-button 
+                        (click)="updateDriver()" 
+                        variant="primary-block" 
+                        design-version="v2">Guardar cambios</cwc-button>     
+                </cwc-cell>
+            </cwc-grid> 
+        </form>
+    </cwc-cell>
+</cwc-grid>
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-1' (cwcClose)="closeModal($event)">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>Los cambios han sido guardados exitosamente.</h3>
+    </div>
+</cwc-modal>
+
+<!-- Content loanding -->
+<div *ngIf="loading" class="loading-content">
+    <cwc-loader>
+        <span slot='loading'>Espere un momento...</span>
+    </cwc-loader>
+</div>

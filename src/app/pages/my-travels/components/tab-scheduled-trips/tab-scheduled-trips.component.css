@@ -1,0 +1,13 @@
+.content-filters {
+    display: flex;
+}
+.select-filters {
+    width: 100%;
+}
+.select-rol {
+    margin: 0 1rem;
+}
+
+.select-date {
+    margin-top: 1rem;
+}

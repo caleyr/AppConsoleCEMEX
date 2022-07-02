@@ -1,0 +1,86 @@
+/***  Estilos Generales  ***/
+h2.title-profile {
+    margin-top: 0;
+}
+.main-content-card {
+    padding: 1.5rem;
+}
+span.style-title {
+    font-weight: 700;
+}
+
+
+/***  Estilos content basic info  ***/
+.avatar-info {
+    display: flex;
+    align-items: center;
+}
+span.name {
+    margin-left: 10px;
+}
+.col-attr-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    margin-bottom: 0.9rem;
+}
+span.attr-user {
+    display: block;
+    font-weight: 700;
+}
+.content-btn-edit {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+/***  Estilos content clever  ***/
+.card-clever {
+    margin-top: 1rem;
+}
+.content-btn-clever {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+span.style-text {
+    line-height: 22px;
+}
+span.text-btn-flit {
+    padding: 0 1.5rem;
+}
+.spacing {
+    width: 8rem;
+}
+span.text-btn-clever {
+    padding: 0 2.1rem;
+}
+
+
+/***  Estilos para movil  ***/  
+@media (max-width: 767.98px) { 
+    .main-content-card {
+        height: auto;
+    }    
+    .col-attr-info {
+        display: block;
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+    .content-btn-edit {
+        justify-content: flex-end;
+    }
+    .padding-contents {
+        padding: 1rem 0;
+    }
+    .content-btn-clever {
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    span.style-text {
+        margin-bottom: 1rem;
+    }
+    .spacing {
+        width: 0;
+    }
+}

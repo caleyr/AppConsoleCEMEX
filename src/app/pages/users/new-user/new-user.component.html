@@ -1,0 +1,229 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <cwc-button (click)="goInfoUsers()" variant="link" leading-icon="arrow-left-single">Usuarios</cwc-button>
+        <h2 class="title-form">Agregar usuario</h2>
+    </cwc-cell>       
+
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <form [formGroup]="formUpdateDriver" (submit)="updateDriver()">
+            <cwc-grid class="demo-grid">
+                <cwc-cell colspan="6" mobile-colspan="12">   
+                    <cwc-picker
+                        class="picker input-update-user" 
+                        label="Rol"
+                        (cwcChange)="cwcChangeRol($event)"
+                        placeholder="Seleccionar">
+                        <option value="Administrador Logistico Cemex" *ngIf="rol === 'Administrador Logistico Cemex'">Administrador Logistico Cemex</option>           
+                        <option value="Power User CEMEX">Power User CEMEX</option>
+                        <option value="Administrador Logistico Tercero">Administrador Logistico Tercero</option>
+                        <option value="Hombre Camion">Hombre Camion</option>
+                        <option value="Conductor">Conductor</option>
+                    </cwc-picker>
+
+                    <div *ngIf="this.formUpdateDriver.controls['Roles'].value">
+                        <cwc-input 
+                            formControlName="FirstName"
+                            [status]="getStatusField('FirstName')"
+                            [statusMessage]="getMsgField('FirstName', 'nombre(s)')"
+                            required="true"
+                            label='Nombre(s)' 
+                            class='input-update-user' 
+                            placeholder="Escribe tu Nombre"></cwc-input>
+
+                        <cwc-input 
+                            formControlName="LastName"
+                            [status]="getStatusField('LastName')"
+                            [statusMessage]="getMsgField('LastName', 'apellidos')"
+                            required="true"
+                            label='Apellidos' 
+                            class='input-update-user' 
+                            placeholder="Apellido paterno y materno"></cwc-input>
+                            
+                        <div *ngIf="this.formUpdateDriver.controls['Roles'].value === 'Conductor'">
+                            <cwc-input
+                                formControlName="Document"
+                                [status]="getStatusField('Document')"
+                                [statusMessage]="getMsgField('Document', 'NIT o CC')" 
+                                required="true"
+                                label='NIT o CC' 
+                                class='input-update-user' 
+                                placeholder="Escribir números sin guiones ni espacios"></cwc-input>
+
+                            <cwc-input
+                                formControlName="SapCode"
+                                [status]="getStatusField('SapCode')"
+                                [statusMessage]="getMsgField('SapCode', 'número de celular')" 
+                                required="true"
+                                label='Código SAP' 
+                                class='input-update-user' 
+                                placeholder="Agrega el código SAP"></cwc-input>
+                        </div>
+
+                        <cwc-input
+                            *ngIf="this.formUpdateDriver.controls['Roles'].value !== 'Administrador Logistico Cemex' && this.formUpdateDriver.controls['Roles'].value !== 'Power User CEMEX'"
+                            formControlName="PhoneNumber"
+                            [status]="getStatusField('PhoneNumber')"
+                            [statusMessage]="getMsgField('PhoneNumber', 'número de celular')" 
+                            required="true"
+                            label='Número de celular' 
+                            class='input-update-user' 
+                            placeholder="Agrega un número de telefono"></cwc-input>
+                            
+                        <cwc-input
+                            formControlName="Email"
+                            [status]="getStatusField('Email')"
+                            [statusMessage]="getMsgField('Email', 'correo electrónico')" 
+                            type="email"
+                            required="true"
+                            label='Correo electrónico' 
+                            class='input-update-user' 
+                            placeholder="Agrega tu correo electrónico"></cwc-input>
+                            
+                        <cwc-input
+                            formControlName="Password"
+                            [status]="getStatusField('Password')"
+                            [statusMessage]="getMsgField('Password', 'contraseña')" 
+                            required="true"
+                            type="password"
+                            label='Contraseña' 
+                            class='input-update-user' 
+                            placeholder="Contraseña"></cwc-input>
+
+                        <cwc-select 
+                            *ngIf="this.formUpdateDriver.controls['Roles'].value !== 'Administrador Logistico Cemex' && this.formUpdateDriver.controls['Roles'].value !== 'Power User CEMEX'"
+                            (cwcChange)="cwcChangeCompany($event)"                             
+                            class="picker input-update-user" 
+                            label="Empresa" 
+                            placeholder="Seleccionar">
+                            <cwc-select-option *ngFor="let companies of companiesList" [value]="companies.id">{{companies.companyName}}</cwc-select-option>
+                        </cwc-select>
+                    </div>
+
+                </cwc-cell>
+
+                <cwc-cell colspan="6" mobile-colspan="12">
+                    <div *ngIf="this.formUpdateDriver.controls['Roles'].value && this.formUpdateDriver.controls['Roles'].value !== 'Administrador Logistico Cemex' && this.formUpdateDriver.controls['Roles'].value !== 'Power User CEMEX'">
+                        <div>
+                            <div class="content-document">
+                                <span class="title-doc">Licencia de conducción (opcional)</span>
+                                <div class="content-action-docs">
+                                    <div class="content-camera"
+                                        onclick="document.getElementById('modal-camera').setAttribute('open', true)"
+                                    >
+                                        <cwc-icon name="camera" size="28px" color="true-black"></cwc-icon>
+                                        <span class="text-action">Tomar fotografía</span>
+                                    </div>
+                                    <div class="content-o">o</div>
+                                    <div class="content-file">
+                                        <cwc-icon name="document" size="28px" color="true-black"></cwc-icon>
+                                        <span class="text-action">Seleccionar archivo</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="content-document">
+                                <span class="title-doc">Carné de seguridad industrial y vial (opcional)</span>
+                            
+                                <div class="content-action-docs">
+                                    <div class="content-camera">
+                                        <cwc-icon name="camera" size="28px" color="true-black"></cwc-icon>
+                                        <span class="text-action">Tomar fotografía</span>
+                                    </div>
+                                    <div class="content-o">o</div>
+                                    <div class="content-file">
+                                        <cwc-icon name="document" size="28px" color="true-black"></cwc-icon>
+                                        <span class="text-action">Seleccionar archivo</span>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="content-document">
+                                <span class="title-doc">Cédula de Ciudadanía (opcional)</span>
+                            
+                                <div class="content-action-docs">
+                                    <div class="content-camera">
+                                        <cwc-icon name="camera" size="28px" color="true-black"></cwc-icon>
+                                        <span class="text-action">Tomar fotografía</span>
+                                    </div>
+                                    <div class="content-o">o</div>
+                                    <div class="content-file">
+                                        <cwc-icon name="document" size="28px" color="true-black"></cwc-icon>
+                                        <span class="text-action">Seleccionar archivo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </cwc-cell>   
+
+                <cwc-cell colspan="6" mobile-colspan="12" *ngIf="this.formUpdateDriver.controls['Roles'].value">
+                    <cwc-checkbox
+                            formControlName="term"
+                            [status]="getStatusField('term')"
+                            required="true" 
+                            class='m-end-sm input-check-user'>Confirmo que la siguiente información es verdadera. </cwc-checkbox>
+
+                        <cwc-button 
+                            onclick="document.getElementById('alert-confirm').setAttribute('open', true)"
+                            variant="primary-block" 
+                            design-version="v2">Agregar usuario</cwc-button>                   
+                    </cwc-cell>
+            </cwc-grid> 
+        </form>
+    </cwc-cell>
+</cwc-grid>
+
+<cwc-modal id='alert-confirm'>
+    <header slot='header'>
+        <h2 style='margin:0;'>Atención</h2>
+    </header>
+    <p>¿Esta seguro que los datos registrados estan correctos?</p>
+    <footer slot='footer'>
+        <div style='text-align: end'>
+            <cwc-button variant='support' style="margin-right: 1rem;"
+                onclick="document.getElementById('alert-confirm').setAttribute('open', false)"
+            >Cancelar</cwc-button>
+            <cwc-button variant='primary' (click)="createUser()" >Aceptar</cwc-button>
+        </div>
+    </footer>
+</cwc-modal>
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-ok' show-close-btn="false">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>Los cambios han sido guardados exitosamente.</h3>
+    </div>
+    <footer slot='footer'>
+        <div style='text-align: center'>
+            <cwc-button variant='primary' (click)="buttonBack()" >Aceptar</cwc-button>
+        </div>
+    </footer>
+</cwc-modal>
+
+<cwc-modal id='modal-error'>
+    <div style='text-align: center'>
+        <cwc-icon-animated variant="conflict" size='120px'></cwc-icon-animated> 
+        <h3 class='modal--confirmation__message'>Usuario existente.</h3>
+    </div>
+</cwc-modal>
+
+<cwc-modal id='modal-camera'>
+    <div style='text-align: center'>
+        <webcam [height]="500" [width]="500" 
+            (imageCapture)="handleImage($event)"
+            [allowCameraSwitch]="true"
+            [imageQuality]="1"
+        ></webcam>
+    </div>                      
+</cwc-modal>
+
+
+<!-- Content loanding -->
+<div *ngIf="loading" class="loading-content">
+    <cwc-loader>
+        <span slot='loading'>Espere un momento...</span>
+    </cwc-loader>
+</div>

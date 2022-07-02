@@ -1,0 +1,109 @@
+
+/***  General styles  ***/
+.content-home {
+    padding: 2rem;
+}
+h1.welcome-user {
+    margin: 0;
+}
+.main-content-card {
+    padding: 1rem;
+}
+.margin-buttom {
+    margin-bottom: 1rem;
+}
+
+
+
+/***  Styles card trips today ***/
+.content-header {
+    text-align: center;
+}
+.content-header span {
+    font-size: 3rem;
+}
+.content-header h5 {
+    margin-top: 0;
+}
+.content-body-trip {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+.item-trip {
+    display: flex;
+    margin-bottom: 0.8rem;
+}
+span.style-text {
+    margin-right: 10px;
+    font-weight: 700;
+    line-height: 15px;
+    font-size: 18px;
+}
+
+
+/***  Styles card request  ***/
+.content-request {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+span.text-request {
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.content-info-request {
+    display: flex;
+    align-items: center;
+}
+.content-btn {
+    display: flex;
+    align-items: center;
+}
+.color-card {
+    background-color: #D6D6D6;
+    margin-top: 0.5rem;
+}
+.content-info-trip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+span.title-card {
+    font-weight: 700;
+}
+p.text-p {
+    margin-bottom: 0;
+}
+span.text-btn-trip {
+    padding: 0 4rem;
+}
+.btn-trip {
+    margin-right: 3rem;
+}
+
+
+/***  Styles card trips  ***/
+.main-content-card-trip {
+    padding: 1.4rem 1rem;
+}
+
+
+/***  Styles card clever  ***/
+.main-content-card-clever {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+.card-clever {
+    margin-top: 3rem;
+}
+span.title-card-clever {
+    font-weight: 700;
+}
+p.text-clever {
+    padding: 1rem;
+}
+.btn-clever {
+    margin-bottom: 1.4rem;
+}

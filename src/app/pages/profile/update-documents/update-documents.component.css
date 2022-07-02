@@ -1,0 +1,54 @@
+
+.style-text {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+span.text-btn-next {
+    padding: 0 8rem;
+}
+
+
+
+/***  Estilos update doc  ***/
+.content-action-docs {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 1.5rem;
+}
+.content-camera {
+    display: flex;
+    align-items: center;
+    background-color: #D6D6D6;
+    padding: 5px 16px;
+    cursor: pointer;
+}
+.content-o {
+    display: flex;
+    align-items: center;
+    background-color: #D6D6D6;
+}
+.content-file {
+    display: flex;
+    align-items: center;
+    background-color: #D6D6D6;
+    padding: 5px 16px;
+    cursor: pointer;
+}
+
+.content-file-name {
+    display: flex;
+    justify-content: space-between;
+    background-color: #d6d6d6;
+    padding: 5px 1rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.content-icon-name-file {
+    display: flex;
+    align-items: center;
+}
+.icon-cancel {
+    display: flex;
+    padding-top: 5px;
+}

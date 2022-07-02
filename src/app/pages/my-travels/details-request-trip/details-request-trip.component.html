@@ -1,0 +1,108 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <cwc-button variant="link" leading-icon="arrow-left-single">Viaje anteriores</cwc-button>
+        <h2 class="title-profile">Viaje 23456789</h2>
+
+        <div class="main-content-search">
+            <div class="content-search">        
+                <div class="content-btn-search">
+                    <cwc-button class="btn-add-user" variant='primary' designVersion="v2">
+                        Editar Viaje
+                    </cwc-button>
+                </div>
+            </div>
+        </div>
+       
+        <cwc-card class="m-all-xs" design-version="v2">
+            <div class="main-content-card">
+                <div class="header-card">
+                    <cwc-cell colspan="6" mobile-colspan="12">  
+                        <div class="attr-user">Conductor</div>
+                        <span class="style-name" >Pendiente</span>
+                    </cwc-cell>
+                    <div>
+                        <cwc-status-indicator variant='alert'>
+                            Por asignar
+                        </cwc-status-indicator>
+                    </div>
+                </div>    
+
+                <hr class="line">
+
+                <cwc-grid class="demo-grid" >
+                    <cwc-cell colspan="3" mobile-colspan="12">  
+                        <div class="attr-user">Origen</div>
+                        <span>CEMEX Planta, Medellín</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="3" mobile-colspan="12">  
+                        <div class="attr-user">Destino</div>
+                        <span>Cerrada Loma Alta 110</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="3" mobile-colspan="12">
+                        <div class="attr-user">Fecha y hora de cita</div>
+                        <span>Aug 15, 2020, 10:30 am</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="3" mobile-colspan="12">   
+                        <div class="attr-user">Número de placa</div>
+                        <span>12386628</span>
+                    </cwc-cell>
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid center-cell" >
+                    <cwc-cell colspan="3" mobile-colspan="12">  
+                        <div class="attr-user">Producto</div>
+                        <span>Mix A - 20016666-F C200 2-8077Al...</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="3" mobile-colspan="12">  
+                        <div class="attr-user">Cantidad</div>
+                        <span>12 YD3</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="3" mobile-colspan="12">
+                        <div class="attr-user">Modelo</div>
+                        <span>Caja cerrada multiproducto</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="3" mobile-colspan="12">   
+                        <div class="attr-user">Cliente</div>
+                        <span>ConstruYa</span>
+                    </cwc-cell>
+                </cwc-grid>
+            </div>
+        </cwc-card>
+    </cwc-cell>
+</cwc-grid>
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <div class="footer-detal-request">
+            <div class="content-btns">
+                <cwc-button variant="support" design-version="v2"><span class="text-btn">Cancelar viaje</span></cwc-button>
+                <cwc-button class="btn-action" variant="primary" design-version="v2">Asignar conductor</cwc-button>
+            </div>
+        </div>
+    </cwc-cell>
+</cwc-grid>
+
+<!-- Modal asignar cita -->
+<cwc-modal id='modal-assign-trip' width="200px">
+    <div class="content-info-modal">
+        <h3 class='modal--confirmation__message'>Asignar Viaje</h3>
+
+        <cwc-picker class="picker input-select" label="" placeholder="Seleccionar">
+            <option value="1">Viaje 23456246, 7:30 am</option>
+            <option value="2">Viaje 23456246, 8:30 am</option>
+            <option value="3">Viaje 23456246, 9:30 am</option>
+            <option value="4">Viaje 23456246, 10:30 am</option>
+        </cwc-picker>
+
+        <cwc-button variant="primary-block" design-version="v2">Aceptar</cwc-button>
+    </div>
+</cwc-modal>
+
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-confirm'>
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>El viaje ha sido asignado de manera exitosa.</h3>
+    </div>
+</cwc-modal>
+

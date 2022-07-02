@@ -1,0 +1,27 @@
+
+<div>
+    <span class="title-doc">Cédula de Ciudadanía</span>
+
+    <div *ngIf="!showNameFile" class="content-action-docs">
+        <div (click)="showCamera()" class="content-camera">
+            <cwc-icon name="camera" size="28px" color="true-black"></cwc-icon>
+            <span class="text-action">Tomar fotografía</span>
+        </div>
+        <div class="content-o">o</div>
+        <div (click)="uploadFile()" class="content-file">
+            <cwc-icon name="document" size="28px" color="true-black"></cwc-icon>
+            <span class="text-action">Seleccionar archivo</span>
+        </div>
+    </div>
+</div>
+
+<div (click)="cancelFile()" class="content-file-name">
+    <div class="content-icon-name-file">
+        <cwc-icon name="attachment" size="22px" color="true-black"></cwc-icon>
+        <span class="text-name-file">Nombre del archivo</span>
+    </div>
+
+    <div class="icon-cancel">
+        <cwc-icon name="close" size="16px" color="true-black"></cwc-icon>
+    </div>
+</div>

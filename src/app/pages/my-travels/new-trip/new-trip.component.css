@@ -1,0 +1,18 @@
+h2.title-form {
+    margin-top: 0;
+}
+
+.input-update-user {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+.input-check-user {
+    margin-bottom: 1.4rem;
+}
+.input-radio-user{
+    margin-right: 2rem;
+}
+.loading-content {
+    top: 0;
+    width: 80%;
+}

@@ -1,0 +1,76 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <h2 class="title-form">Editar conductor</h2>
+    </cwc-cell>       
+
+    <cwc-cell colspan="5" mobile-colspan="12">    
+        <form [formGroup]="formUpdateDriver" (submit)="updateDriver()">
+            <cwc-input 
+                formControlName="name"
+                [status]="getStatusField('name')"
+                [statusMessage]="getMsgField('name', 'nombre(s)')"
+                required="true"
+                label='Nombre(s)' 
+                class='input-update-driver' 
+                placeholder="Escribe tu Nombre"></cwc-input>
+
+            <cwc-input 
+                formControlName="lastName"
+                [status]="getStatusField('lastName')"
+                [statusMessage]="getMsgField('lastName', 'apellidos')"
+                required="true"
+                label='Apellidos' 
+                class='input-update-driver' 
+                placeholder="Apellido paterno y materno"></cwc-input>
+            
+            <cwc-input
+                formControlName="phone"
+                [status]="getStatusField('phone')"
+                [statusMessage]="getMsgField('phone', 'número de celular')" 
+                required="true"
+                label='Número de celular' 
+                class='input-update-driver' 
+                placeholder="Agrega un número de telefono"></cwc-input>
+
+            <cwc-picker 
+                formControlName="company"
+                [status]="getStatusField('company')"
+                [statusMessage]="getMsgField('company', 'empresa')"
+                required="true"
+                class="picker input-update-driver" 
+                label="Empresa" 
+                placeholder="Seleccionar">                
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+            </cwc-picker>
+                        
+            <cwc-checkbox
+                formControlName="term"
+                [status]="getStatusField('term')"
+                required="true" 
+                class='m-end-sm input-check-driver'>Confirmo que la siguiente información es verdadera. </cwc-checkbox>
+
+            <cwc-button 
+                (click)="updateDriver()" 
+                variant="primary-block" 
+                design-version="v2">Guardar cambios</cwc-button>
+        </form>
+    </cwc-cell>
+</cwc-grid>
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-1' (cwcClose)="closeModal($event)">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>Los cambios han sido guardados exitosamente.</h3>
+    </div>
+</cwc-modal>
+
+<!-- Content loanding -->
+<div *ngIf="loading" class="loading-content">
+    <cwc-loader>
+        <span slot='loading'>Espere un momento...</span>
+    </cwc-loader>
+</div>

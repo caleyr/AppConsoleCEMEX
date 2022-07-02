@@ -1,0 +1,153 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <cwc-button (click)="goMyTravels()" variant="link" leading-icon="arrow-left-single">Mis viajes</cwc-button>
+        <h2 class="title-form">Agregar viaje</h2>
+    </cwc-cell>       
+
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <form [formGroup]="formCreateTrip" (submit)="newTrip()">
+            <cwc-grid class="demo-grid">
+                <cwc-cell colspan="6" mobile-colspan="12"> 
+
+                    <cwc-input 
+                        formControlName="origin"
+                        [status]="getStatusField('origin')"
+                        [statusMessage]="getMsgField('origin', 'origen')"
+                        required="true"
+                        label='Origen' 
+                        class='input-update-user' 
+                        placeholder="Agregar el lugar de origen"></cwc-input>
+
+                    <cwc-input 
+                        formControlName="destination"
+                        [status]="getStatusField('destination')"
+                        [statusMessage]="getMsgField('destination', 'destino')"
+                        required="true"
+                        label='Destino' 
+                        class='input-update-user' 
+                        placeholder="Lugar donde se llevará la mercancia"></cwc-input>
+
+                    <cwc-input 
+                        formControlName="product"
+                        [status]="getStatusField('product')"
+                        [statusMessage]="getMsgField('product', 'producto')"
+                        required="true"
+                        label='Producto' 
+                        class='input-update-user' 
+                        placeholder="Tipo de producto y características"></cwc-input>
+                    
+                    <cwc-input
+                        formControlName="amount"
+                        [status]="getStatusField('amount')"
+                        label='Cantidad (opcional)' 
+                        class='input-update-user' 
+                        placeholder="Cuánto producto se necesita"></cwc-input>     
+
+                    <cwc-input
+                        formControlName="date"
+                        [status]="getStatusField('date')"
+                        [statusMessage]="getMsgField('date', 'fecha')" 
+                        type="date"
+                        required="true"
+                        label='Fecha' 
+                        class='input-update-user' 
+                        placeholder="Cuándo se realizará el viaje"></cwc-input> 
+
+                    <cwc-input
+                        formControlName="startTime"
+                        [status]="getStatusField('startTime')"
+                        [statusMessage]="getMsgField('startTime', 'hora de inicio')" 
+                        type="time"
+                        required="true"
+                        label='Hora de inicio' 
+                        class='input-update-user' 
+                        placeholder="A qué hora se realizá el viaje"></cwc-input>
+
+                </cwc-cell>
+
+                <cwc-cell colspan="6" mobile-colspan="12">
+                    <cwc-input
+                        formControlName="client"
+                        [status]="getStatusField('client')"
+                        [statusMessage]="getMsgField('client', 'cliente')" 
+                        required="true"
+                        label='Cliente' 
+                        class='input-update-user' 
+                        placeholder="Escribe el nombre del cliente"></cwc-input>
+
+                    <cwc-picker 
+                        formControlName="vehicle"
+                        [status]="getStatusField('vehicle')"
+                        class="picker input-update-user" 
+                        label="Vehículo (opcional)" 
+                        placeholder="Seleccionar">                
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                    </cwc-picker>      
+
+                    <cwc-picker 
+                        formControlName="licensePlate"
+                        [status]="getStatusField('licensePlate')"
+                        class="picker input-update-user" 
+                        label="Placa (opcional)" 
+                        placeholder="Seleccionar">                
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                    </cwc-picker>
+
+                    <cwc-picker 
+                        formControlName="driver"
+                        [status]="getStatusField('driver')"
+                        class="picker input-update-user" 
+                        label="Conductor (opcional)" 
+                        placeholder="Seleccionar">                
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                    </cwc-picker>
+
+                    <cwc-input
+                        formControlName="latitude"
+                        [status]="getStatusField('latitude')"
+                        label='Latitud (opcional)' 
+                        class='input-update-user' 
+                        placeholder="Agregar latitud"></cwc-input>     
+
+                    <cwc-input
+                        formControlName="length"
+                        [status]="getStatusField('length')"
+                        label='Longitud (opcional)' 
+                        class='input-update-user' 
+                        placeholder="Agregar longitud"></cwc-input>
+                </cwc-cell>   
+
+                <cwc-cell colspan="5" mobile-colspan="12">
+                    <cwc-button 
+                        (click)="newTrip()" 
+                        variant="primary-block" 
+                        design-version="v2">Agregar viaje</cwc-button>     
+                </cwc-cell>
+            </cwc-grid> 
+        </form>
+    </cwc-cell>
+</cwc-grid>
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-1' (cwcClose)="closeModal($event)">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>Los cambios han sido guardados exitosamente.</h3>
+    </div>
+</cwc-modal>
+
+<!-- Content loanding -->
+<div *ngIf="loading" class="loading-content">
+    <cwc-loader>
+        <span slot='loading'>Espere un momento...</span>
+    </cwc-loader>
+</div>

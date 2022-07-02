@@ -1,0 +1,10 @@
+.content-logout {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 32vh;
+}
+.item-logout {
+    width: 100%;
+    background-color: #003876;
+}

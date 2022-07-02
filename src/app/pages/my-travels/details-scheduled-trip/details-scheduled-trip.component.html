@@ -1,0 +1,126 @@
+<cwc-grid class="demo-grid">    
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <cwc-button variant="link" leading-icon="arrow-left-single">Viaje anteriores</cwc-button>
+        <h2 class="title-profile">Viaje 23456789</h2>     
+        <cwc-stepper id="stepper">
+            <cwc-stepper-step step-label='Step 1'></cwc-stepper-step>
+            <cwc-stepper-step step-label='Step 2'></cwc-stepper-step>
+            <cwc-stepper-step step-label='Step 3'></cwc-stepper-step>
+            <cwc-stepper-step step-label='Summary'></cwc-stepper-step>
+        </cwc-stepper>
+    </cwc-cell>
+
+    <cwc-cell colspan="6" mobile-colspan="12">   
+        <cwc-card class="m-all-xs" design-version="v2">
+            <div class="main-content-card">
+                <div class="header-card">
+                    <cwc-cell colspan="6" mobile-colspan="12">  
+                        <div class="attr-user">Conductor</div>
+                        <cwc-icon name="phone" size="14px" color="true-black"></cwc-icon>
+                        <span class="number-phone">Alberto Gutierrez Lópezs</span>
+                    </cwc-cell>
+                    <div style="text-align: right;">
+                        <cwc-status-indicator variant='alert'>
+                            Completado
+                        </cwc-status-indicator>
+                        <span class="state-trip">Iniciando viaje</span>
+                    </div>
+                </div>    
+
+                <hr class="line">
+
+                <cwc-grid class="demo-grid" >
+                    <cwc-cell colspan="6" mobile-colspan="12">  
+                        <div class="attr-user">Origen</div>
+                        <span>CEMEX Planta, Medellín</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">  
+                        <div class="attr-user">Destino</div>
+                        <span>Cerrada Loma Alta 110</span>
+                    </cwc-cell>
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid center-cell" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">Producto</div>
+                        <span>Mix A - 20016666-F C200 2-8077AL</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">   
+                        <div class="attr-user">Cantidad</div>
+                        <span>12 YD3</span>
+                    </cwc-cell>
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">Fecha y hora</div>
+                        <span>Aug 15, 2020, 10:30 am</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">Numero de Placa</div>
+                        <span>12386628</span>
+                    </cwc-cell>
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid center-cell" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">Modelo</div>
+                        <span>PLataforma</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">   
+                        <div class="attr-user">Clente</div>
+                        <span>ConstruYa</span>
+                    </cwc-cell>
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid center-cell" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">Inicio de viaje</div>
+                        <span>10:48 am</span>
+                    </cwc-cell>
+                </cwc-grid>
+            </div>
+        </cwc-card>
+    </cwc-cell>
+    <cwc-cell colspan="6" mobile-colspan="12">        
+        <div class="map" #mapVer>
+        </div>
+    </cwc-cell>
+</cwc-grid>
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <div class="footer-detal-request">
+            <div class="content-btns">
+                <cwc-button variant="support" design-version="v2"><span class="text-btn">Contactar conductor</span></cwc-button>
+                <cwc-button class="btn-action" variant="primary" design-version="v2">Editar viaje</cwc-button>
+            </div>
+        </div>
+    </cwc-cell>
+</cwc-grid>
+
+
+<!-- Modal asignar cita -->
+<cwc-modal id='modal-assign-trip' width="200px">
+    <div class="content-info-modal">
+        <h3 class='modal--confirmation__message'>Asignar Viaje</h3>
+
+        <cwc-picker class="picker input-select" label="" placeholder="Seleccionar">
+            <option value="1">Viaje 23456246, 7:30 am</option>
+            <option value="2">Viaje 23456246, 8:30 am</option>
+            <option value="3">Viaje 23456246, 9:30 am</option>
+            <option value="4">Viaje 23456246, 10:30 am</option>
+        </cwc-picker>
+
+        <cwc-button variant="primary-block" design-version="v2">Aceptar</cwc-button>
+    </div>
+</cwc-modal>
+
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-confirm'>
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>El viaje ha sido asignado de manera exitosa.</h3>
+    </div>
+</cwc-modal>
+

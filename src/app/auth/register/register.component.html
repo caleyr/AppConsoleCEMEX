@@ -1,0 +1,107 @@
+
+<div slot="main" class="content-main-login">
+    <div>
+        <h2 class="title-login">Registro</h2>
+
+        <form [formGroup]="formRegister" (submit)="onSubmit()">
+            <cwc-grid class="demo-grid">
+                <cwc-cell colspan="12" mobile-colspan="12">
+                    <cwc-input 
+                        formControlName="FirstName"
+                        [status]="getStatusField('FirstName')"
+                        [statusMessage]="getMsgField('FirstName', 'nombre(s)')"
+                        required="true"
+                        label='Nombre(s)' 
+                        class='input-login'
+                        placeholder="Escribe tu Nombre"></cwc-input>
+
+                    <cwc-input 
+                        formControlName="LastName"
+                        [status]="getStatusField('LastName')"
+                        [statusMessage]="getMsgField('LastName', 'apellidos')"
+                        required="true"
+                        label='Apellidos' 
+                        class='input-login'
+                        placeholder="Apellido paterno y materno"></cwc-input>
+
+                    <cwc-input 
+                        formControlName="Email"
+                        [status]="getStatusField('Email')"
+                        [statusMessage]="getMsgField('Email', 'correo')"
+                        type="email"
+                        label='Correo' 
+                        class='input-login'
+                        placeholder="Escribe tu correo electrónico"></cwc-input>
+                                 
+                    <cwc-input 
+                        formControlName="Password"
+                        [status]="getStatusField('Password')"
+                        [statusMessage]="getMsgField('Password', 'contraseña')"
+                        type='password' 
+                        label='Contraseña' 
+                        allow-password-show='true' 
+                        class='input-login' 
+                        placeholder="Escribe tu contraseña"></cwc-input>
+
+                    <cwc-picker 
+                        formControlName="Roles"
+                        [status]="getStatusField('Roles')"
+                        [statusMessage]="getMsgField('Roles', 'rol')"
+                        required="true"
+                        class="picker input-login"
+                        label="Rol" 
+                        placeholder="Seleccionar">              
+                        <option value="Administrador Logistico Cemex">Administrador logístico CEMEX</option>
+                        <option value="Power User CEMEX">Power User CEMEX</option>
+                    </cwc-picker>
+              
+                    <cwc-button     
+                        (click)="onSubmit()" 
+                        [disabled]="formRegister.invalid"
+                        variant="primary-block"
+                        design-version="v2">Crear Usuario</cwc-button>
+                </cwc-cell>
+            </cwc-grid>
+        </form>
+    </div>
+</div>
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-ok' show-close-btn="false">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>Los cambios han sido guardados exitosamente.</h3>
+    </div>
+    <footer slot='footer'>
+        <div style='text-align: center'>
+            <cwc-button variant='primary' (click)="buttonBack()" >Aceptar</cwc-button>
+        </div>
+    </footer>
+</cwc-modal>
+
+<cwc-modal id='modal-error'>
+    <div style='text-align: center'>
+        <cwc-icon-animated variant="conflict" size='120px'></cwc-icon-animated> 
+        <h3 class='modal--confirmation__message'>Usuario existente.</h3>
+    </div>
+</cwc-modal>
+
+<!-- Content loanding -->
+<div *ngIf="loading" class="loading-content">
+    <cwc-loader>
+        <span slot='loading'>Espere un momento...</span>
+    </cwc-loader>
+</div>
+
+<cwc-modal id='alert-confirm'>
+    <header slot='header'>
+        <h2 style='margin:0;'>Atención</h2>
+    </header>
+    <p>¿Esta seguro que los datos registrados estan correctos?</p>
+    <footer slot='footer'>
+        <div style='text-align: end'>
+          <cwc-button variant='support' style="margin-right: 1rem;">Cancelar</cwc-button>
+            <cwc-button variant='primary' (click)="register()" >Aceptar</cwc-button>
+        </div>
+    </footer>
+</cwc-modal>

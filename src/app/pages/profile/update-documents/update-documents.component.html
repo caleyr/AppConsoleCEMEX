@@ -1,0 +1,65 @@
+<h2>Actualizar documentos</h2>
+
+<div class="style-text">Seleccione el documento que desea actualizar</div>
+
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="5" mobile-colspan="12">
+        <cwc-radio-group name='heroes'>
+            <cwc-radio value='1'>Cédula de Ciudadanía</cwc-radio><br/>
+            <cwc-radio value='2'>RUT</cwc-radio><br/>
+            <cwc-radio value='3'>Documentos de Cámara de Comercio</cwc-radio><br/>
+            <cwc-radio value='4'>Acta de Nacimiento</cwc-radio><br/>
+            <cwc-radio value='5'>Certificado de curso</cwc-radio>
+        </cwc-radio-group>  
+        
+        <div *ngIf="!showUpdateDoc" class="content-btn-next">
+            <cwc-button (click)="nextSelectDoc()" variant='primary-block' design-version="v2"><span class="text-btn-next">Siguiente</span></cwc-button>
+        </div>
+    </cwc-cell>    
+</cwc-grid>
+
+<cwc-grid *ngIf="showUpdateDoc" class="demo-grid doc-update">
+    <cwc-cell colspan="5" mobile-colspan="12">
+        <div class="style-text">Seleccione el documento que desea actualizar</div>
+
+        <div>
+            <span class="title-doc">Cédula de Ciudadanía</span>
+
+            <div *ngIf="!showNameFile" class="content-action-docs">
+                <div (click)="showCamera()" class="content-camera">
+                    <cwc-icon name="camera" size="28px" color="true-black"></cwc-icon>
+                    <span class="text-action">Tomar fotografía</span>
+                </div>
+                <div class="content-o">o</div>
+                <div (click)="uploadFile()" class="content-file">
+                    <cwc-icon name="document" size="28px" color="true-black"></cwc-icon>
+                    <span class="text-action">Seleccionar archivo</span>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="showNameFile" (click)="cancelFile()" class="content-file-name">
+            <div class="content-icon-name-file">
+                <cwc-icon name="attachment" size="22px" color="true-black"></cwc-icon>
+                <span class="text-name-file">Nombre del archivo</span>
+            </div>
+
+            <div class="icon-cancel">
+                <cwc-icon name="close" size="16px" color="true-black"></cwc-icon>
+            </div>
+        </div>
+
+        <div class="content-btn-next">
+            <cwc-button (click)="updateNewDocSelect()" variant='primary-block' design-version="v2"><span class="text-btn-next">Agregar documento</span></cwc-button>
+        </div>
+    </cwc-cell>
+</cwc-grid>
+
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-1' (cwcClose)="closeModal($event)">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>Los cambios han sido guardados exitosamente.</h3>
+    </div>
+</cwc-modal>

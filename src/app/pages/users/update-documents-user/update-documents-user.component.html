@@ -1,0 +1,43 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="6" mobile-colspan="12">
+        <cwc-button (click)="goInfoUser()" variant="link" leading-icon="arrow-left-single">Información usuario</cwc-button>
+        <h2 class="style-title">Actualizar documentos</h2>
+
+        <div class="style-text">Seleccione uno o varios documentos</div>
+        
+        <div class="content-check-docs">
+            <cwc-checkbox class="input-check-docs">Licencia de conducir</cwc-checkbox>
+            <cwc-checkbox class="input-check-docs">Carné de Seguridad Idustrial y Vial</cwc-checkbox>
+            <cwc-checkbox class="input-check-docs">Cédula de Ciudadanía</cwc-checkbox>
+        </div>
+        
+        <div *ngIf="!showUpdateDoc" class="content-btn-next">
+            <cwc-button (click)="nextSelectDoc()" variant='primary-block' design-version="v2"><span class="text-btn-next">Siguiente</span></cwc-button>
+        </div>
+    </cwc-cell>
+</cwc-grid>
+
+
+<cwc-grid *ngIf="showUpdateDoc" class="demo-grid doc-update">
+    <cwc-cell colspan="5" mobile-colspan="12">
+        <div class="style-text">Seleccione el documento que desea actualizar</div>
+
+        <div class="content-upload">
+            <app-upload-files></app-upload-files>
+        </div>
+
+        <div class="content-btn-next">
+            <cwc-button (click)="updateNewDocSelect()" variant='primary-block' design-version="v2"><span class="text-btn-next">Agregar documento</span></cwc-button>
+        </div>
+    </cwc-cell>
+</cwc-grid>
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-1' (cwcClose)="closeModal($event)">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>
+            El documento se ha cargado exitosamente. 
+        </h3>
+    </div>
+</cwc-modal>

@@ -1,0 +1,13 @@
+.input-update-driver {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+.input-check-driver {
+    margin-top: 5px;
+    margin-bottom: 1.4rem;
+}
+
+.loading-content {
+    top: 0;
+    width: 80%;
+}

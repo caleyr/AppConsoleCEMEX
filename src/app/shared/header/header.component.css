@@ -1,0 +1,11 @@
+.separator {
+    width: 1.2rem;
+}
+.wrapper:hover {
+    background-color: #E8EBEF;
+}
+.content-avatar-profile {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}

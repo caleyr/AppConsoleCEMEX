@@ -1,0 +1,26 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="4" mobile-colspan="12">
+        <h3>Empresas actuales {{listComanies.length}}</h3>
+    </cwc-cell>
+
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <div class='p-all-sm' style='background: #F4F6F9'>
+            <cwc-table-wrapper>
+                <table class='action'>
+                    <thead>
+                        <tr>
+                            <th> Nombre </th>
+                            <th class="numeric"> Número de proveedor </th>                     
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cta" *ngFor="let company of listComanies" (click)="detailCompany(company.id)">
+                            <td>{{company.companyName}}</td>
+                            <td class="numeric">{{company.codeSap}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </cwc-table-wrapper>        
+        </div>
+    </cwc-cell>
+</cwc-grid>

@@ -1,0 +1,91 @@
+/***  styles btn asing trip  ***/ 
+.content-btn-assign-trip {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+
+/***  styles card info user  ***/ 
+.main-content-card {
+    padding: 1.5rem;
+}
+.header-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.avatar-info {
+    display: flex;
+    align-items: center;
+}
+span.style-name {
+    margin-left: 0.5rem;
+    font-weight: 700;
+}
+.content-status {
+    display: flex;
+    align-items: center;
+}
+.active {
+    background-color: #7ac943;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.attr-user {
+    font-weight: 700;
+}
+hr.line {
+    margin-bottom: 1rem;
+}
+span.number-phone {
+    padding-left: 8px;
+    padding-right: 10px;
+}
+.center-cell {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.content-btn-edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+
+/***  styles card documents user  ***/ 
+.card-docs {
+    margin-top: 3rem;
+}
+.title-docs {
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+.content-docs {
+    display: flex;
+    justify-content: space-between;
+}
+.content-action-docs {
+    padding-top: 2rem;
+    display: flex;
+    align-items: flex-end;
+}
+.content-action-docs {
+    display: flex;
+    align-items: flex-end;
+}
+
+/*** Estilos modal asignar cita  ***/ 
+.content-info-modal {
+    text-align: center;
+    padding: 0 8rem;
+}
+.input-select {
+    width: 100%;
+    text-align: left;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

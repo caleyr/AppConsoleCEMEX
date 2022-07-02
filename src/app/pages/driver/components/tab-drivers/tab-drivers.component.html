@@ -1,0 +1,198 @@
+
+<cwc-grid class="demo-grid" >
+    <cwc-cell colspan="4" mobile-colspan="12">
+        <cwc-card class="m-all-xs" design-version="v2">
+            <div class="padding-cards">
+                <div class="main-content-basic-info">
+                    <div class="contnet-info">
+                        <cwc-avatar 
+                            size="small"
+                            image-source="https://scstdcnxdsld01.z21.web.core.windows.net/dls/assets/samples/images/uploaded-picture-2.jpg"
+                            name="Michael Wasserman"
+                            class="m-h-xs"
+                        ></cwc-avatar>
+                        <div class="info">
+                            <span class="name-driver">Luis Felipe Guerra</span>
+                            <div>
+                                <cwc-icon class="icon-phone" name="phone" size="14px" color="true-black"></cwc-icon>
+                                <span>3001234567</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-status">
+                        <cwc-status-indicator variant="alert">En turno</cwc-status-indicator>
+                    </div>
+                </div>                
+               
+                <div class="content-edilt">
+                    <span>Logísticos S.A. de C.V.</span> 
+                    <cwc-button (click)="editarDriver()" variant="link">Editar</cwc-button>
+                </div>
+            </div>
+        </cwc-card>
+    </cwc-cell>
+
+    <cwc-cell colspan="8" mobile-colspan="12">
+        <cwc-card class="m-all-xs" design-version="v2">
+            <div class="padding-cards">
+                <div class="title-card">Papelería</div>
+
+                <cwc-grid class="demo-grid" >
+                    <cwc-cell colspan="3" mobile-colspan="12">
+                        <div class="item-archives">
+                            <cwc-icon></cwc-icon>
+                            <!-- <cwc-icon name="close" size="14px" color="bright-blue"></cwc-icon> -->
+                            <span class="text-archive">Licencia de conducir</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon></cwc-icon>
+                            <!-- <cwc-icon name="close" size="14px" color="bright-blue"></cwc-icon> -->
+                            <span class="text-archive">Identificacion oficial</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon></cwc-icon>
+                            <!-- <cwc-icon name="close" size="14px" color="bright-blue"></cwc-icon> -->
+                            <span class="text-archive">Certificado de curso</span>
+                        </div>
+                    </cwc-cell>
+                    <cwc-cell colspan="3" mobile-colspan="12">
+                        <div class="item-archives">
+                            <!-- <cwc-icon name="close" size="14px" color="bright-blue"></cwc-icon> -->
+                            <cwc-icon></cwc-icon>
+                            <span class="text-archive">Cedula de ciudadania</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon></cwc-icon>
+                            <span class="text-archive">Certificado de chofer</span>
+                        </div>
+                    </cwc-cell>
+                    <cwc-cell class="action-column" colspan="3" mobile-colspan="12">
+                        <cwc-button (click)="updateDocsDriver()" variant="link">Actualizar Documentos</cwc-button>
+                    </cwc-cell>
+                    <cwc-cell class="action-column" colspan="3" mobile-colspan="12">
+                        <cwc-button *ngIf="!hasTrip" (click)="assignAppointment()" designVersion="v2" variant='primary'>Asignar cita</cwc-button>
+                        <cwc-button *ngIf="hasTrip" (click)="reviewTrip()" designVersion="v2" variant='primary'>Revisar viaje</cwc-button>
+                    </cwc-cell>
+                </cwc-grid>
+            </div>
+        </cwc-card>
+    </cwc-cell>
+</cwc-grid>  
+
+<h3 class="number-dirvers">Conductores (40)</h3>
+
+<div>    
+    <cwc-table-wrapper autoheadings="false" dir="LTR">
+        <table class="action accordion">
+            <thead>
+                <tr>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Celular
+                    </th>
+                    <th>
+                        Empresa
+                    </th>            
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Luis Felipe Guerra
+                    </td>
+                    <td>
+                        <cwc-status-indicator variant="alert">En turno</cwc-status-indicator>
+                    </td>
+                    <td>
+                        3001234567
+                    </td>
+                    <td>
+                        Transportes Logísticos S.A. de C.V.
+                    </td>           
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <table>
+                        <thead>
+                            <tr>
+                            <th>Lorem</th>
+                            <th>Ipsum</th>
+                            <th>Dolor</th>
+                            <th>Sit</th>
+                            <th>Amet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>consectetur</td>
+                            <td>adipiscing</td>
+                            <td>elit</td>
+                            <td>sed</td>
+                            <td>do</td>
+                            </tr>
+                            <tr>
+                            <td>eiusmod</td>
+                            <td>tempor</td>
+                            <td>incididunt</td>
+                            <td>ut</td>
+                            <td>labore</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>
+                        David Leal Guitierrez
+                    </td>
+                    <td>
+                        <cwc-status-indicator variant="alert">Disponible</cwc-status-indicator>
+                    </td>
+                    <td>
+                        3007654321
+                    </td>
+                    <td>
+                        Sin nombre
+                    </td>                
+                </tr>
+                <tr>
+                    <td colspan="5">Lorem Ipsum Dolor Sit Amet</td>
+                </tr>
+            </tbody>
+        </table>        
+    </cwc-table-wrapper>
+</div>
+
+
+<!-- Modal asignar cita -->
+<cwc-modal id='modal-assign-appointment' (cwcClose)="closeModalAssignAppointment($event)" width="200px">
+    <div *ngIf="showModalAppointment" class="content-info-modal">
+        <h3 class='modal--confirmation__message'>Asignar cita</h3>
+
+        <cwc-picker class="picker input-select" label="" placeholder="Seleccionar">
+            <option value="1">Viaje 23456246, 7:30 am</option>
+            <option value="2">Viaje 23456246, 8:30 am</option>
+            <option value="3">Viaje 23456246, 9:30 am</option>
+            <option value="4">Viaje 23456246, 10:30 am</option>
+        </cwc-picker>
+
+        <cwc-button (click)="assignAppointmentDriver()" type="submit" variant="primary-block" design-version="v2">Aceptar</cwc-button>
+    </div>
+</cwc-modal>
+
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-confirm' (cwcClose)="closeModalConfirm($event)">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>La cita ha sido asignada de manera exitosa.</h3>
+    </div>
+</cwc-modal>

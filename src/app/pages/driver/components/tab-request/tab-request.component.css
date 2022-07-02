@@ -1,0 +1,69 @@
+/*** Estilos Generales  ***/
+.spacing-div {
+    height: 30px;
+}
+.padding-cards {
+    padding: 1rem;
+    height: 90px;
+}
+
+
+/*** Estilos card información basica  ***/
+.main-content-basic-info {
+    display: flex;
+    justify-content: space-between;
+}
+.contnet-info {
+    display: flex;
+    align-items: center;
+}
+.info {
+    display: grid;
+    padding-left: 1rem;
+}
+span.name-driver {
+    font-weight: 700;
+}
+.icon-phone {
+    margin-right: 6px;
+}
+.content-edilt {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+span.btn-edit {
+    cursor: pointer;
+    color: #757f8c;
+}
+span.btn-edit:hover {
+    color: #7ac943;
+}
+
+
+/*** Estilos card papeleria  ***/
+.title-card {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.action-column {
+    display: flex;
+    align-items: flex-end;
+}
+.action-reject {
+    justify-content: flex-end;
+}
+
+
+/*** Estilos tabla dirvers  ***/
+h3.number-dirvers {
+    margin: 2rem 0;
+}
+
+
+/*** Estilos para moviles  ***/
+@media (max-width: 767.98px) { 
+    .padding-cards {
+        height: auto;
+    }
+}

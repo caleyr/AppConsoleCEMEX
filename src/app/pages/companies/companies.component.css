@@ -1,0 +1,27 @@
+
+/***  styles content search  ***/
+.main-content-search {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 2rem;
+}
+.content-search {
+    display: flex;
+    margin-bottom: -45px;
+}
+.btn-add-user {
+    margin-left: 1rem;
+}
+.icon-add {
+    margin-right: 5px;
+}
+.content-btn-search {
+    padding-top: 6px;
+}
+
+/***  styles tabs users  ***/
+@media (max-width: 767.98px) { 
+    .content-search {
+        margin-bottom: 0;
+    }
+}

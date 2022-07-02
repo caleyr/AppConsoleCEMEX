@@ -1,0 +1,40 @@
+/***  Estilos documentos  ***/
+.content-action-docs {
+    display: flex;
+    background-color: #D6D6D6;
+}
+.content-camera {
+    display: flex;
+    align-items: center;
+    padding: 5px 16px;
+    cursor: pointer;
+}
+.content-o {
+    display: flex;
+    align-items: center;
+}
+.content-file {
+    display: flex;
+    align-items: center;
+    padding: 5px 16px;
+    cursor: pointer;
+}
+
+/***  Estilos nombre archivo  ***/
+.content-file-name {
+    display: flex;
+    justify-content: space-between;
+    background-color: #d6d6d6;
+    padding: 5px 1rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.content-icon-name-file {
+    display: flex;
+    align-items: center;
+}
+.icon-cancel {
+    display: flex;
+    padding-top: 5px;
+}

@@ -1,0 +1,70 @@
+<cwc-grid class="demo-grid" >
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <cwc-button routerLink="/" variant="link" leading-icon="arrow-left-single">Atrás</cwc-button>
+        <h2 class="title-profile">Mi Perfil</h2>
+    </cwc-cell>
+
+    <cwc-cell colspan="5" mobile-colspan="12">
+        <cwc-card class="m-all-xs" design-version="v2">
+            <div class="main-content-card">
+                <div class="avatar-info">
+                    <div>
+                        <cwc-avatar
+                            *ngIf="photoUser; else noContent"
+                            size="small"
+                            image-source="https://scstdcnxdsld01.z21.web.core.windows.net/dls/assets/samples/images/uploaded-picture-2.jpg"
+                            name="Michael Wasserman"
+                            class="m-h-xs"
+                        ></cwc-avatar>
+                        <ng-template #noContent>
+                            <cwc-avatar size="small" variant="negative" [name]="fullNameUser" class="m-h-xs"></cwc-avatar>
+                        </ng-template>
+                    </div>
+                    <span class="style-title name">{{ perfil.FirstName + ' ' + perfil.LastName }}</span>
+                </div>  
+                
+                <hr>
+
+                <cwc-grid class="demo-grid" >
+                    <cwc-cell colspan="12" mobile-colspan="12">
+                        <div class="col-attr-info">
+                            <div class="padding-contents">
+                                <span class="attr-user">Correo electrónico</span>
+                                <span>{{ perfil.Email }}</span>
+                            </div>     
+                            <div class="content-btn-edit padding-contents">
+                                <cwc-button (click)="updateInfoUser()" variant="link">Editar</cwc-button>
+                            </div>                       
+                        </div>
+                    </cwc-cell>
+                </cwc-grid>
+            </div>
+        </cwc-card>
+    </cwc-cell>   
+
+    <cwc-cell colspan="7" mobile-colspan="12">
+        <cwc-card class="m-all-xs" design-version="v2">
+            <div class="main-content-card">
+                <span class="style-title">Accede a tu viaje CEMEX</span>                
+            
+                <div class="content-btn-clever">
+                    <span class="style-text">Verifica el estado de tus viajes y actualizaciones de los mismos.</span>
+                    <div class="spacing"></div>
+                    <cwc-button (click)="yourTripCemex()" design-version="v2"><span class="text-btn-flit">Tu viaje CEMEX</span></cwc-button>
+                </div>
+            </div>
+        </cwc-card>
+
+        <cwc-card class="m-all-xs card-clever" design-version="v2">
+            <div class="main-content-card">
+                <span class="style-title">Accede a tu cuenta Clever</span>
+                
+                <div class="content-btn-clever">
+                    <span class="style-text">Revisa tus datos y mantén tu perfil actualizado para tener un mejor seguimiento de tus viajes.</span>
+                    <div class="spacing"></div>
+                    <cwc-button (click)="goCleverGlobal()" design-version="v2"><span class="text-btn-clever">Clever global</span></cwc-button>
+                </div>
+            </div>
+        </cwc-card>
+    </cwc-cell>
+</cwc-grid>

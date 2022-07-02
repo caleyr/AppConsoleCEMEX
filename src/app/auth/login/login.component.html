@@ -1,0 +1,58 @@
+<div slot="main" class="content-main-login">
+    <div>
+        <h2 class="title-login">Iniciar Sesión</h2>
+
+        <form [formGroup]="formLogin" (submit)="onSubmit()">
+            <cwc-grid class="demo-grid">
+                <cwc-cell colspan="12" mobile-colspan="12">
+                    <cwc-input 
+                        formControlName="email"
+                        [status]="getStatusField('email')"
+                        [statusMessage]="getMsgField('email', 'usuario')"
+                        type="email"
+                        label='Correo' 
+                        class='input-login'
+                        placeholder="Escribe tu correo electrónico"></cwc-input>
+                                 
+                    <cwc-input 
+                        formControlName="password"
+                        [status]="getStatusField('password')"
+                        [statusMessage]="getMsgField('password', 'contraseña')"
+                        type='password' 
+                        label='Contraseña' 
+                        allow-password-show='true' 
+                        class='input-login' 
+                        placeholder="Escribe tu contraseña"></cwc-input>
+              
+                    <cwc-button     
+                        (click)="onSubmit()" 
+                        variant="primary-block" 
+                        design-version="v2">Iniciar sesión</cwc-button>
+                </cwc-cell>
+            </cwc-grid>
+        </form>
+
+        <div class="content-reset-password" (click)="resetPassword()" >
+            <cwc-button variant="link">¿Has olvidado tu contraseña?</cwc-button>
+        </div>   
+        <div class="content-line-login">          
+            <h5 class="text-not-account">¿Aún no tienes cuenta? <span (click)="createUser()"><cwc-button variant="link">Registrate</cwc-button></span></h5>
+        </div>
+    </div>
+</div>
+
+<!-- Content loanding -->
+<div *ngIf="loading" class="loading-content">
+    <cwc-loader>
+        <span slot='loading'>Espere un momento...</span>
+    </cwc-loader>
+</div>
+
+<cwc-modal id='modal-1'>
+    <div style='text-align: center'>
+        <cwc-icon-animated variant="conflict" size='120px'></cwc-icon-animated> 
+        <h3 class='modal--confirmation__message' style="font-weight: lighter;">Error.
+        <br />{{msg}}</h3>
+    </div>
+</cwc-modal>
+

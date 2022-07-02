@@ -1,0 +1,22 @@
+/***  Estilos generales  ***/
+.spacing-div {
+    height: 40px;
+}
+
+/***  Estilos content buscador  ***/
+.main-content-search {
+    display: flex;
+    justify-content: flex-end;
+}
+.content-search {
+    display: flex;
+}
+.btn-add-driver {
+    margin-left: 1rem;
+}
+.icon-add {
+    margin-right: 5px;
+}
+.content-btn-search {
+    padding-top: 6px;
+}

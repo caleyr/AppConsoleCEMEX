@@ -1,0 +1,26 @@
+<cwc-sidenav>  
+    <cwc-sidenav-menu id="menuNav" slot="menu-items">
+        <cwc-sidenav-menu-item label="Inicio" iconName="information-rounded-fill" routerLink="/"></cwc-sidenav-menu-item>
+        <cwc-sidenav-menu-item label="Mis viajes" iconName="options-delivery" routerLink="mis-viajes"></cwc-sidenav-menu-item>
+        <cwc-sidenav-menu-item label="Usuarios" iconName="social-group-regular" routerLink="usuarios"></cwc-sidenav-menu-item>
+        <cwc-sidenav-menu-item label="Vehiculos" iconName="product-line-aggregates" routerLink="vehiculos"></cwc-sidenav-menu-item>
+        <cwc-sidenav-menu-item label="Empresas" iconName="options-pickup" routerLink="empresas"></cwc-sidenav-menu-item>
+        <cwc-sidenav-menu-item label="Lista de espera" iconName="report" routerLink="lista-de-espera"></cwc-sidenav-menu-item>
+        
+        <div class="content-logout">            
+            <cwc-sidenav-menu-item (click)="logout()" class="item-logout" label="Logout"></cwc-sidenav-menu-item> 
+        </div>
+    </cwc-sidenav-menu>
+
+    <cwc-footer-menu slot="links">
+        <cwc-footer-menu-item label="Legal" href="https://www.cemex.com/legal" target="_blank"></cwc-footer-menu-item>
+        <cwc-footer-menu-item label="Privacy"></cwc-footer-menu-item>
+        <cwc-footer-menu-item label="cemex.com" href="https://www.cemex.com" target="_blank"></cwc-footer-menu-item>
+    </cwc-footer-menu>
+
+    <div slot="copyright">
+        © 2017-2021 CEMEX International <br/>
+        Holding AG.<br />
+        All rights reserved.
+    </div>
+</cwc-sidenav>
