@@ -36,49 +36,25 @@
                         <tr>
                             <th> Nombre </th>
                             <th> Rol </th>
-                            <th> Status </th>
+                            <th> Status </th>                            
                             <th> Actividad </th>
                             <th> Celular </th>
                             <th> Empresa </th>                        
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="cta" (click)="detailUser('Luis')">
-                            <td>Luis Felipe Guerra</td>
-                            <td>Conductor</td>
-                            <td>Activo</td>
+                        <tr class="cta" (click)="detailUser(user.id)" *ngFor="let user of listUsers">
+                            <td>{{user.firstLastName}}</td>
+                            <td>{{user.role}}</td>
+                            <td>{{user.status}}</td>
                             <td>
                                 <cwc-status-indicator variant='alert'>
-                                    En turno
+                                    {{user.travelStatus}}
                                 </cwc-status-indicator>
                             </td>
-                            <td>3001234567</td>
-                            <td>Transportes logísticos S.A.</td>
-                        </tr>                        
-                        <tr class="cta">
-                            <td>Luis Felipe Guerra</td>
-                            <td>Conductor</td>
-                            <td>Activo</td>
-                            <td>
-                                <cwc-status-indicator variant='alert'>
-                                    En turno
-                                </cwc-status-indicator>
-                            </td>
-                            <td>3001234567</td>
-                            <td>Transportes logísticos S.A.</td>
-                        </tr>                        
-                        <tr class="cta">
-                            <td>Luis Felipe Guerra</td>
-                            <td>Conductor</td>
-                            <td>Activo</td>
-                            <td>
-                                <cwc-status-indicator variant='alert'>
-                                    En turno
-                                </cwc-status-indicator>
-                            </td>
-                            <td>3001234567</td>
-                            <td>Transportes logísticos S.A.</td>
-                        </tr>                        
+                            <td>{{user.phoneNumber}}</td>
+                            <td>{{user.company}}</td>
+                        </tr>                      
                     </tbody>
                 </table>
             </cwc-table-wrapper>        

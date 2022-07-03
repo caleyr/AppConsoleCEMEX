@@ -1,7 +1,7 @@
 <cwc-grid class="demo-grid">
-    <cwc-cell colspan="6" mobile-colspan="12">
+    <cwc-cell colspan="8" mobile-colspan="12">
         <cwc-button (click)="goUsers()" variant="link" leading-icon="arrow-left-single">Usuarios actuales</cwc-button>
-        <h2 class="title-profile">Luis Felipe Guerra</h2>
+        <h2 class="title-profile">{{user.firstLastName}}</h2>
 
         <div class="content-btn-assign-trip">
             <cwc-button (click)="assignTrip()" variant="primary" design-version="v2">Asignar viaje</cwc-button>
@@ -18,59 +18,60 @@
                             name="Michael Wasserman"
                             class="m-h-xs"
                         ></cwc-avatar>
-                        <span class="style-name">Luis Felipe Guerra</span>
+                        <span class="style-name">{{user.firstLastName}}</span>
                     </div>  
 
                     <div class="content-status">
-                        <div class="active"></div>
-                        <span>Activo</span>
+                        <div *ngIf="user.status === 'Activo'" class="active"></div>
+                        <div *ngIf="user.status !== 'Activo'" class="disable"></div>
+                        <span>{{user.status}}</span>
                     </div>
                  
                     <div>
                         <cwc-status-indicator variant='alert'>
-                            En turno
+                            {{user.travelStatus}}
                         </cwc-status-indicator>
                     </div>
                 </div>    
 
                 <hr class="line">
 
-                <cwc-grid class="demo-grid" >
+                <cwc-grid class="demo-grid center-cell" >
                     <cwc-cell colspan="6" mobile-colspan="12">
                         <div>
                             <div class="attr-user">Celular</div>
                             <cwc-icon name="phone" size="14px" color="true-black"></cwc-icon>
-                            <span class="number-phone">3001234567</span>
+                            <span class="number-phone">{{user.phoneNumber}}</span>
                             <cwc-button (click)="callUser()" variant="link">llamar</cwc-button>
                         </div>
+                    </cwc-cell>                    
+                    <cwc-cell colspan="6" mobile-colspan="12">   
+                        <div class="attr-user">Correo electrónico</div>
+                        <span>{{user.email}}</span>
+                    </cwc-cell>
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid center-cell" *ngIf="user.role === 'Conductor'">
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">Cédula o NIT</div>
+                        <span>{{user.document}}</span>
                     </cwc-cell>
                     <cwc-cell colspan="6" mobile-colspan="12">  
                         <div class="attr-user">Código SAP</div>
-                        <span>12345qwer</span>
-                    </cwc-cell>
+                        <span>{{user.sapCode}}</span>
+                    </cwc-cell>                    
                 </cwc-grid>
 
                 <cwc-grid class="demo-grid center-cell" >
                     <cwc-cell colspan="6" mobile-colspan="12">
-                        <div class="attr-user">NIT</div>
-                        <span>987654321</span>
-                    </cwc-cell>
-                    <cwc-cell colspan="6" mobile-colspan="12">   
-                        <div class="attr-user">Correo electrónico</div>
-                        <span>luisf.castillo@gmail.com</span>
-                    </cwc-cell>
-                </cwc-grid>
-
-                <cwc-grid class="demo-grid" >
-                    <cwc-cell colspan="6" mobile-colspan="12">
                         <div class="attr-user">Empresa</div>
-                        <span>Transportes Logísticos S.A.</span>
+                        <span>{{user.company}}</span>
                     </cwc-cell>
                     <cwc-cell colspan="6" mobile-colspan="12">  
                         <div class="content-btn-edit">
                             <div>
                                 <div class="attr-user">Rol</div>
-                                <span>Admin. Logístico</span>
+                                <span>{{user.role}}</span>
                             </div> 
                             <cwc-button (click)="editDataUser()" variant="link">Editar datos</cwc-button>
                         </div> 
@@ -86,15 +87,18 @@
                 <div class="content-docs">
                     <div>
                         <div class="item-archives">
-                            <cwc-icon></cwc-icon>
+                            <cwc-icon *ngIf="user.drivinglicense !== null" name="check-rounded-active-fill" color="bright-green"></cwc-icon>
+                            <cwc-icon *ngIf="user.drivinglicense === null" name="error-rounded-fill" color="true-red"></cwc-icon>
                             <span class="text-archive">Licencia de conducir</span>
                         </div>
                         <div class="item-archives">
-                            <cwc-icon></cwc-icon>
+                            <cwc-icon *ngIf="user.securityCard !== null" name="check-rounded-active-fill" color="bright-green"></cwc-icon>
+                            <cwc-icon *ngIf="user.securityCard === null" name="error-rounded-fill" color="true-red"></cwc-icon>
                             <span class="text-archive">Carné de Seguridad Idustrial y Vial</span>
                         </div>
                         <div class="item-archives">
-                            <cwc-icon></cwc-icon>
+                            <cwc-icon *ngIf="user.documentIdentityCard !== null" name="check-rounded-active-fill" color="bright-green"></cwc-icon>
+                            <cwc-icon *ngIf="user.documentIdentityCard === null" name="error-rounded-fill" color="true-red"></cwc-icon>
                             <span class="text-archive">Cédula de ciudadania</span>
                         </div>
                     </div>

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserRequestList } from '../../../../interfaces/UserRequestList';
+import { UserService } from '../../../../services/user.service';
+import { DetailRequestUserComponent } from '../../detail-request-user/detail-request-user.component';
 
 @Component({
   selector: 'app-tab-users-requests',
@@ -8,13 +11,26 @@ import { Router } from '@angular/router';
 })
 export class TabUsersRequestsComponent implements OnInit {
 
-  constructor( private router: Router ) { }
+  userList : UserRequestList[] = [];
 
-  ngOnInit(): void { }
+  constructor( 
+    private router: Router,
+    private userService : UserService
+    ) { }
 
-  detailUser( user: string ) {
-    console.log('Ver informacion del usuario...'); 
+  ngOnInit(): void {
+    this.getData();
+   }
+
+  detailUser( id: string ) {
+    this.userService.id = id;    
     this.router.navigateByUrl('/dashboard/usuarios/detalles-solicitud');
+  }
+
+  getData(){
+    this.userService.getUserRequestList().subscribe(data=>{
+      this.userList = data;
+    });
   }
 
 }

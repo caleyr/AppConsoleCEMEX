@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicles',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehiclesComponent implements OnInit {
 
-  constructor() { }
+  tabVehiclesRequests: boolean = false;
+  tabCurrentVehicles: boolean = true;
 
-  ngOnInit(): void {
+  constructor( private router: Router ) { }
+
+  ngOnInit(): void { }
+
+  goHome() {
+    this.router.navigateByUrl('/');
+  }
+
+  addNewVehicle() {
+    this.router.navigateByUrl('/dashboard/vehiculos/agregar');
+  }
+
+  cwcTabActivated( event: CustomEvent ) {  
+    if ( event.detail === 'solicitudes' ) {
+      this.tabVehiclesRequests = true;
+      this.tabCurrentVehicles = false;
+    } else {
+      this.tabVehiclesRequests = false;
+      this.tabCurrentVehicles = true;
+    }
   }
 
 }

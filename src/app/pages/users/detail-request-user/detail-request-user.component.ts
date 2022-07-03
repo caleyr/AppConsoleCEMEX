@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserDetail } from '../../../interfaces/UserDetail';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-detail-request-user',
@@ -8,11 +10,29 @@ import { Router } from '@angular/router';
 })
 export class DetailRequestUserComponent implements OnInit {
 
+  user : UserDetail;  
+  id : string;
+
   showModalReject: boolean = false;
 
-  constructor( private router: Router ) { }
+  constructor( 
+    private router: Router,
+    private userService : UserService
+  ) { }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {  
+    this.getData();
+  }
+
+  getData(){
+    if(this.userService.id !== null){
+      this.id = this.userService.id;
+      this.userService.getUserDetail(this.id).subscribe(data=>{
+        this.user = data;
+        this.userService.id = null;
+      });
+    }    
+  }
 
   goUsers() {
     this.router.navigateByUrl('/dashboard/usuarios');
@@ -29,7 +49,12 @@ export class DetailRequestUserComponent implements OnInit {
   }
 
   acceptRequest() {
-    console.log('aceptar solicitud...')
+    var data : FormData = new FormData();
+    data.append('Email', this.user.email);
+    data.append('Status', '2');
+    this.userService.activateUser(this.user.email, data).subscribe(()=>{
+      document.getElementById('modal-ok').setAttribute('open', 'true')
+    });
   }
 
   modalBtnAccept() {
@@ -46,6 +71,10 @@ export class DetailRequestUserComponent implements OnInit {
   
   closeModalConfirmReject( event ) {
     console.log('cerrar modal... ', event)
+  }
+
+  buttonBack(){
+    this.router.navigateByUrl('dashboard/usuarios');
   }
 
 }

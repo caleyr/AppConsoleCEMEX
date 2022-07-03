@@ -25,6 +25,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UpdateProfileComponent } from './profile/update-profile/update-profile.component';
 import { MyTravelsRoutingModule } from './my-travels/my-travels.routing';
 import { CompaniesRoutingModule } from './companies/companies.routing';
+import { VehiclesRoutingModule } from './vehicles/vehicles.routing';
 
 
 
@@ -41,8 +42,6 @@ const childRoutes: Routes = [
   { path: 'driver/actualizar-conductor', component: UpdateDriverComponent, data: { title: 'Actualizar conductor' } },
   { path: 'driver/actualizar-documentos', component: UpdateDocumentsDriverComponent, data: { title: 'Actualizar documentos' } },
 
-  { path: 'vehiculos', component: VehiclesComponent, data: { title: 'Vehículos' } },
-
   { path: 'lista-de-espera', component: WaitingListComponent, data: { title: 'Lista de espera' } },
   
   { path: 'perfil', component: ProfileComponent, data: { title: 'Perfil' } },
@@ -56,7 +55,8 @@ const childRoutes: Routes = [
     RouterModule.forChild(childRoutes),
     UsersRoutingModule,
     MyTravelsRoutingModule,
-    CompaniesRoutingModule
+    CompaniesRoutingModule,
+    VehiclesRoutingModule
   ],
   exports: [ RouterModule ]
 })

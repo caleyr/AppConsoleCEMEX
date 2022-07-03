@@ -7,6 +7,9 @@ import { catchError, map, Observable, of, tap } from 'rxjs';
 import { Rol } from '../pages/interfaces/rol';
 import { Profile } from '../models/profile.model';
 import { environment } from 'src/environments/environment';
+import { UserApprovedList } from '../interfaces/UserApprovedList';
+import { UserRequestList } from '../interfaces/UserRequestList';
+import { UserDetail } from '../interfaces/UserDetail';
 
 
 const BASE_URL_API = environment.urlApi;
@@ -17,6 +20,7 @@ const BASE_URL_API = environment.urlApi;
 export class UserService {
 
   user: User;
+  id : string = null;
 
   perfil: Profile;
   
@@ -126,4 +130,22 @@ export class UserService {
 
     return true;
   }
+
+  getUsersApproved() {
+    return this.httpClient.get<UserApprovedList[]>(`${BASE_URL_API}/api/authentication/GetAllUserApproved`);    
+  }
+
+  getUserRequestList() {
+    return this.httpClient.get<UserRequestList[]>(`${BASE_URL_API}/api/authentication/GetUsersUnapproved`);    
+  }
+
+  getUserDetail(id : string) {
+    return this.httpClient.get<UserDetail>(`${BASE_URL_API}/api/authentication/GetUserDetail/${id}`);    
+  }
+
+  activateUser(email : string, data :  any) {
+    return this.httpClient.put(`${BASE_URL_API}/api/authentication/UserActivation/${email}`, data);    
+  }
+
+
 }

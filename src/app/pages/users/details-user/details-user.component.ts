@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../../services/user.service';
+import { UserDetail } from '../../../interfaces/UserDetail';
 
 @Component({
   selector: 'app-details-user',
@@ -8,14 +10,32 @@ import { Router } from '@angular/router';
 })
 export class DetailsUserComponent implements OnInit {
 
+  user : UserDetail;
+
+  id : string;
+
   showModalTrip: boolean = false;
 
-  constructor( private router: Router ) { }
+  constructor( 
+    private router: Router,
+    private userService : UserService
+     ) { }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void { 
+    this.getData();
+   }
 
   goUsers() {
     this.router.navigateByUrl('/dashboard/usuarios');
+  }
+
+  getData(){
+    if(this.userService.id !== null){
+      this.id = this.userService.id;
+      this.userService.getUserDetail(this.id).subscribe(data=>{
+        this.user = data;
+      });
+    }    
   }
 
   assignTrip() {

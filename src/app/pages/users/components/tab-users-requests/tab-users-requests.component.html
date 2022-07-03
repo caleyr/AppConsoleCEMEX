@@ -35,39 +35,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="cta" (click)="detailUser('Luis')">
-                            <td>Luis Felipe Guerra</td>
-                            <td>Conductor</td>
+                        <tr class="cta" (click)="detailUser(user.id)" *ngFor="let user of userList">
+                            <td>{{user.firstLastName}}</td>
+                            <td>{{user.role}}</td>
                             <td>
                                 <cwc-status-indicator variant='alert'>
-                                    Pendiente por aprobar
+                                    {{user.travelStatus}}
                                 </cwc-status-indicator>
                             </td>
-                            <td>3001234567</td>
-                            <td>Transportes logísticos S.A.</td>
-                        </tr>                        
-                        <tr class="cta" (click)="detailUser('Luis')">
-                            <td>Luis Felipe Guerra</td>
-                            <td>Conductor</td>
-                            <td>
-                                <cwc-status-indicator variant='alert'>
-                                    Pendiente por aprobar
-                                </cwc-status-indicator>
-                            </td>
-                            <td>3001234567</td>
-                            <td>Transportes logísticos S.A.</td>
-                        </tr>                        
-                        <tr class="cta" (click)="detailUser('Luis')">
-                            <td>Luis Felipe Guerra</td>
-                            <td>Conductor</td>
-                            <td>
-                                <cwc-status-indicator variant='alert'>
-                                    Pendiente por aprobar
-                                </cwc-status-indicator>
-                            </td>
-                            <td>3001234567</td>
-                            <td>Transportes logísticos S.A.</td>
-                        </tr>                 
+                            <td>{{user.phoneNumber}}</td>
+                            <td>{{user.company}}</td>
+                        </tr>               
                     </tbody>
                 </table>
             </cwc-table-wrapper>        
