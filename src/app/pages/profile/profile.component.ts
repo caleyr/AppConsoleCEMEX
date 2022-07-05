@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
-import { User } from '../../models/user.model';
 import { Profile } from '../../models/profile.model';
 import { CompaniesService } from '../../services/companies.service';
 
@@ -23,8 +22,8 @@ export class ProfileComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {    
-    this.perfil = this.userService.perfil;
-    this.fullNameUser = `${this.userService.perfil.FirstName + ' ' + this.userService.perfil.LastName}`;
+    this.perfil = this.userService.profileUser;
+    this.fullNameUser = `${this.userService.profileUser.FirstName + ' ' + this.userService.profileUser.LastName}`;
   }
 
   updateInfoUser() {

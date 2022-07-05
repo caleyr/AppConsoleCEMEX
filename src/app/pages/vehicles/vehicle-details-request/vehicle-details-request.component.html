@@ -1,0 +1,137 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="6" mobile-colspan="12">
+        <cwc-button (click)="goUsers()" variant="link" leading-icon="arrow-left-single">Solicitudes vehiculos</cwc-button>
+        <h2 class="title-profile">Multiproducto {{vehicle.model}}</h2>
+       
+        <cwc-card class="m-all-xs" design-version="v2">
+            <div class="main-content-card">
+                <div class="header-card">
+                    <div class="avatar-info">
+                        <span class="style-name">Multiproducto {{vehicle.model}}</span>
+                    </div>  
+                                     
+                    <div>
+                        <cwc-status-indicator variant='alert'>
+                            Pendiente
+                        </cwc-status-indicator>
+                    </div>
+                </div>    
+
+                <hr class="line">
+
+                <cwc-grid class="demo-grid">
+                    <cwc-cell colspan="6" mobile-colspan="12">   
+                        <div class="attr-user">Modelo</div>
+                        <span>{{vehicle.model}}</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">   
+                        <div class="attr-user">Placa</div>
+                        <span>{{vehicle.licenseVehiculo}}</span>
+                    </cwc-cell>
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid center-cell">
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">Tipo de trailer</div>
+                        <span>{{vehicle.typeTrailer}}</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">  
+                        <div class="attr-user">Empresa</div>
+                        <span>{{vehicle.companyId}}</span>
+                    </cwc-cell>                    
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">Num. de SOAT</div>
+                        <span>{{vehicle.soat}}</span>
+                    </cwc-cell>
+                </cwc-grid>         
+            </div>
+        </cwc-card>
+
+        <cwc-card class="m-all-xs card-docs" design-version="v2">
+            <div class="main-content-card">
+                <div class="title-docs">Documentación</div>
+
+                <div class="content-docs">
+                    <div>
+                        <div class="item-archives">
+                            <cwc-icon *ngIf="vehicle.soatDocument !== null" name="check-rounded-active-fill" color="bright-green"></cwc-icon>
+                            <cwc-icon *ngIf="vehicle.soatDocument === null" name="error-rounded-fill" color="true-red"></cwc-icon>
+                            <span class="text-archive">Documento de SOAT</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon *ngIf="vehicle.technomechanicsDocument !== null" name="check-rounded-active-fill" color="bright-green"></cwc-icon>
+                            <cwc-icon *ngIf="vehicle.technomechanicsDocument === null" name="error-rounded-fill" color="true-red"></cwc-icon>
+                            <span class="text-archive">Certificado de revisión tecno mecánica</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon *ngIf="vehicle.policyDocument !== null" name="check-rounded-active-fill" color="bright-green"></cwc-icon>
+                            <cwc-icon *ngIf="vehicle.policyDocument === null" name="error-rounded-fill" color="true-red"></cwc-icon>
+                            <span class="text-archive">Póliza</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon *ngIf="vehicle.cardPropertyDocument !== null" name="check-rounded-active-fill" color="bright-green"></cwc-icon>
+                            <cwc-icon *ngIf="vehicle.cardPropertyDocument === null" name="error-rounded-fill" color="true-red"></cwc-icon>
+                            <span class="text-archive">Tarjeta de propiedad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </cwc-card>
+    </cwc-cell>
+</cwc-grid>
+
+<!-- footer -->
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="12" mobile-colspan="12">
+        <div class="footer-detal-request">
+            <div class="content-btns">
+                <cwc-button (click)="rejectRequest()" variant="support" design-version="v2"><span class="text-btn">Rechazar</span></cwc-button>
+                <cwc-button (click)="acceptRequest()" class="btn-action" variant="primary" design-version="v2">Aceptar solicitud</cwc-button>
+            </div>
+        </div>
+    </cwc-cell>
+</cwc-grid>
+
+
+<!-- Modal asignar cita -->
+<cwc-modal id='modal-reject-request' (cwcClose)="closeModalRejectRequest($event)" width="200px">
+    <div *ngIf="showModalReject" class="content-info-modal">
+        <h3 class='modal--confirmation__message'>Seleccione un motivo por el cual rechaza la solicitud</h3>
+
+        <cwc-radio-group name='heroes'>
+            <cwc-radio value='2'>Falta de documentación</cwc-radio><br/>
+            <cwc-radio value='3'>Los datos no coinciden</cwc-radio><br/>
+            <cwc-radio value='5'>Su transportadora actualmente no es cliente</cwc-radio><br/>
+            <cwc-radio value='1'>Otro</cwc-radio>
+        </cwc-radio-group>  
+
+        <cwc-button (click)="modalBtnAccept()" variant="primary-block" design-version="v2">Aceptar</cwc-button>
+    </div>
+</cwc-modal>
+
+
+<!-- Confirmational modal -->
+<cwc-modal id='modal-confirm-reject-request' (cwcClose)="closeModalConfirmReject($event)">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>El conductor ha sido rechazado, se le notificará al<br/>
+            conductor para hacer seguimiento de su solicitud.</h3>
+    </div>
+</cwc-modal>
+
+<cwc-modal id='modal-ok' show-close-btn="false">
+    <div style='text-align: center'>
+        <cwc-icon name='accepted-ok' size='120px' color='bright-green'></cwc-icon>
+        <h3 class='modal--confirmation__message'>Los cambios han sido guardados exitosamente.</h3>
+    </div>
+    <footer slot='footer'>
+        <div style='text-align: center'>
+            <cwc-button variant='primary' (click)="buttonBack()" >Aceptar</cwc-button>
+        </div>
+    </footer>
+</cwc-modal>
+
+

@@ -7,13 +7,14 @@ import { AuthRoutingModule } from './auth/auth.routing';
 
 // Componentes
 import { NotFoundComponent } from './not-found/not-found/not-found.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
   // path: '/dashboard' AuthRouting
   // path: '/auth' AuthRouting
 
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   //{ path: '**', component: NotFoundComponent },
 ];
 

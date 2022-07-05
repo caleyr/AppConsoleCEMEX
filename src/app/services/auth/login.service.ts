@@ -34,26 +34,6 @@ export class LoginService {
     return this.http.post(`${URL}/api/authentication/login`, data, {headers: headersHttp});      
   }
 
-  async getData (token){
-    var perfil : Profile = new Profile();
-    perfil.FirstName = JSON.parse(window.atob(token.split('.')[1]))["FirstName"];
-    perfil.LastName = JSON.parse(window.atob(token.split('.')[1]))["LastName"];
-    perfil.Email = JSON.parse(window.atob(token.split('.')[1]))["Email"];
-    perfil.CompanyId = JSON.parse(window.atob(token.split('.')[1]))["CompanyId"];
-    perfil.Document = JSON.parse(window.atob(token.split('.')[1]))["Document"];
-    perfil.SapCode = JSON.parse(window.atob(token.split('.')[1]))["SapCode"];
-    perfil.PhoneNumber = JSON.parse(window.atob(token.split('.')[1]))["PhoneNumber"];
-    perfil.Roles = JSON.parse(window.atob(token.split('.')[1]))["Roles"];
-
-    var exp = perfil.Roles = JSON.parse(window.atob(token.split('.')[1]))["exp"];
-
-    await sessionStorage.setItem('roles', perfil.Roles);
-    await sessionStorage.setItem('token', token);
-    await sessionStorage.setItem('exp', exp);
-
-    this.userService.perfil = perfil;
-  }
-
   async getToken(){
     this.currentToken = await sessionStorage.get('token') || null;
   }

@@ -7,6 +7,8 @@ import { TabCurrentVehiclesComponent } from './components/tab-current-vehicles/t
 import { TabVehiclesRequestsComponent } from './components/tab-vehicles-requests/tab-vehicles-requests.component';
 import { NewVehicleComponent } from './new-vehicle/new-vehicle.component';
 import { UpdateVehicleComponent } from './update-vehicle/update-vehicle.component';
+import { VehicleDetailsRequestComponent } from './vehicle-details-request/vehicle-details-request.component';
+import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 
 
 
@@ -16,7 +18,9 @@ import { UpdateVehicleComponent } from './update-vehicle/update-vehicle.componen
     TabCurrentVehiclesComponent,
     TabVehiclesRequestsComponent,
     NewVehicleComponent,
-    UpdateVehicleComponent
+    UpdateVehicleComponent,
+    VehicleDetailsRequestComponent,
+    VehicleDetailsComponent
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { VehicleApprovedList } from '../../../../interfaces/VehicleApprovedList';
 import { VehicleService } from '../../../../services/vehicle.service';
+import { Vehicle } from '../../interfaces/vehicle';
 
 @Component({
   selector: 'app-tab-current-vehicles',
@@ -10,7 +10,7 @@ import { VehicleService } from '../../../../services/vehicle.service';
 })
 export class TabCurrentVehiclesComponent implements OnInit {
 
-  listVehicles : VehicleApprovedList[] = [];
+  vehicleList : Vehicle[] = [];
 
   constructor( 
     private router: Router,
@@ -23,12 +23,12 @@ export class TabCurrentVehiclesComponent implements OnInit {
 
   detailUser( id: string ) {
     this.vehicleService.id = id;    
-    this.router.navigateByUrl('/dashboard/usuarios/detalles');
+    this.router.navigateByUrl('/dashboard/vehiculos/detalles');
   }
 
   getData(){
     this.vehicleService.getVehiclesApproved().subscribe(data=>{
-      this.listVehicles = data;   
+      this.vehicleList = data;   
     });
   }
 

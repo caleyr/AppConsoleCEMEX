@@ -13,7 +13,6 @@ import { ProfileModule } from './profile/profile.module';
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DriverComponent } from './driver/driver.component';
-import { VehiclesComponent } from './vehicles/vehicles.component';
 import { MyTravelsModule } from './my-travels/my-travels.module';
 import { CompaniesModule } from './companies/companies.module';
 import { VehiclesModule } from './vehicles/vehicles.module';

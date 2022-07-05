@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   constructor( private userService: UserService ) { }
 
   ngOnInit(): void {
-    this.user = `${this.userService.perfil.FirstName + ' ' + this.userService.perfil.LastName}`;
+    this.user = `${this.userService.profileUser.FirstName + ' ' + this.userService.profileUser.LastName}`;
   }
 
 }

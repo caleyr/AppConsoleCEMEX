@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CompaniesService } from '../../../services/companies.service';
 import { Companies } from '../../../models/companies.model';
 import { VehicleService } from '../../../services/vehicle.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-new-vehicle',
@@ -18,13 +19,17 @@ export class NewVehicleComponent implements OnInit {
   data : FormData;
 
   formNewVehicle: FormGroup = this.formBuilder.group({
-    model: ['', [ Validators.required ]],
-    licensePlate: ['', [ Validators.required ]],
-    trailerType: ['', [ Validators.required ]],    
-    companyId: ['', [ Validators.required ]],    
-    soat: ['ASD - 123'],
-    status: [''],
-    travelStatus: [ ''],
+    Model: ['', [ Validators.required ]],
+    LicenseVehiculo: ['', [ Validators.required ]],
+    TypeTrailer: ['', [ Validators.required ]],    
+    CompanyId: ['', [ Validators.required ]],    
+    Soat: ['', [ Validators.required ]],
+    SoatDocument: [''],
+    TechnomechanicsDocument: [''],
+    PolicyDocument: [''],
+    CardPropertyDocument: [''],
+    StatusVehicle: ['2'],
+    StatusTravel: [ '1'],
     term: [false, [ Validators.requiredTrue ]]
   });
 
@@ -32,17 +37,19 @@ export class NewVehicleComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private companiesService : CompaniesService,
-    private vehicleService : VehicleService ) {
+    private vehicleService : VehicleService,
+    private location : Location ) {
     }
 
   ngOnInit(): void { 
     this.companiesService.getCompanies().subscribe(data =>{
       this.companiesList = data;
+      console.log(data);      
     });
   }
 
   goInfoVehicles() {
-    this.router.navigateByUrl('dashboard/vehiculos');
+    this.location.back();
   }
 
   getStatusField( field: string ) {
@@ -62,7 +69,7 @@ export class NewVehicleComponent implements OnInit {
   }
 
   cwcChangeCompany(event){
-    this.formNewVehicle.get('companyId').setValue(event.detail.value);
+    this.formNewVehicle.get('CompanyId').setValue(event.detail.value);
   }
 
   async createVehicle(){
@@ -92,7 +99,7 @@ export class NewVehicleComponent implements OnInit {
   }
 
   buttonBack(){
-    this.router.navigateByUrl('dashboard/vehiculos');
+    this.location.back();
   }
 
   getRol(){

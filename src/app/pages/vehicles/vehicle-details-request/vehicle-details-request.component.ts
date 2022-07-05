@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { Vehicle } from '../interfaces/vehicle';
 import { Router } from '@angular/router';
-import { UserDetail } from '../../../interfaces/UserDetail';
 import { UserService } from '../../../services/user.service';
+import { VehicleService } from '../../../services/vehicle.service';
 
 @Component({
-  selector: 'app-detail-request-user',
-  templateUrl: './detail-request-user.component.html',
-  styleUrls: ['./detail-request-user.component.css']
+  selector: 'app-vehicle-details-request',
+  templateUrl: './vehicle-details-request.component.html',
+  styleUrls: ['./vehicle-details-request.component.css']
 })
-export class DetailRequestUserComponent implements OnInit {
+export class VehicleDetailsRequestComponent implements OnInit {
 
-  user : UserDetail;
+  vehicle : Vehicle = new Vehicle();
   id : string;
 
   showModalReject: boolean = false;
 
   constructor( 
     private router: Router,
-    private userService : UserService
+    private vehicleService : VehicleService
   ) { }
 
   ngOnInit(): void {  
@@ -25,17 +26,17 @@ export class DetailRequestUserComponent implements OnInit {
   }
 
   getData(){
-    if(this.userService.id !== null){
-      this.id = this.userService.id;
-      this.userService.getUserDetail(this.id).subscribe(data=>{
-        this.user = data;
-        this.userService.id = null;
+    if(this.vehicleService.id !== null){
+      this.id = this.vehicleService.id;
+      this.vehicleService.getVehicleById(this.id).subscribe(data=>{
+        this.vehicle = data;
+        this.vehicle.id = null;
       });
     }    
   }
 
   goUsers() {
-    this.router.navigateByUrl('/dashboard/usuarios');
+    this.router.navigateByUrl('/dashboard/vehiculos');
   }
 
   callUser() {
@@ -49,12 +50,12 @@ export class DetailRequestUserComponent implements OnInit {
   }
 
   acceptRequest() {
-    var data : FormData = new FormData();
+    /*var data : FormData = new FormData();
     data.append('Email', this.user.email);
     data.append('Status', '2');
     this.userService.activateUser(this.user.email, data).subscribe(()=>{
       document.getElementById('modal-ok').setAttribute('open', 'true')
-    });
+    });*/
   }
 
   modalBtnAccept() {
@@ -74,7 +75,7 @@ export class DetailRequestUserComponent implements OnInit {
   }
 
   buttonBack(){
-    this.router.navigateByUrl('dashboard/usuarios');
-  }
+    this.router.navigateByUrl('dashboard/vehiculos');
 
+  }
 }

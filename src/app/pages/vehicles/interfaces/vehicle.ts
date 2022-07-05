@@ -1,4 +1,4 @@
-export interface VehicleApprovedList{
+export class Vehicle{
     id : string;
     licenseVehiculo : string;
     model : string;
@@ -6,8 +6,8 @@ export interface VehicleApprovedList{
     soat : string;
     companyId : string;
     statusVehicle : string;
-    statusTravel : string;
-    soatDocument : string;
+    statusTravel : number;
+    soatDocument : number;
     technomechanicsDocument : string;
     policyDocument : string;
     cardPropertyDocument : string;

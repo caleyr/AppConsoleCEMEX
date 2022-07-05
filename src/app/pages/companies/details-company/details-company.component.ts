@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Companies } from 'src/app/models/companies.model';
@@ -16,7 +17,8 @@ export class DetailsCompanyComponent implements OnInit {
   constructor(
     private route : ActivatedRoute,
     private companiesService : CompaniesService,
-    private router : Router
+    private router : Router,
+    private location : Location
     ) {
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
@@ -30,7 +32,7 @@ export class DetailsCompanyComponent implements OnInit {
   }
 
   buttonBack() {
-    this.router.navigateByUrl('/dashboard/empresas');
+    this.location.back();
   }
 
 }

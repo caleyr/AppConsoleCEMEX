@@ -26,6 +26,7 @@ import { UpdateProfileComponent } from './profile/update-profile/update-profile.
 import { MyTravelsRoutingModule } from './my-travels/my-travels.routing';
 import { CompaniesRoutingModule } from './companies/companies.routing';
 import { VehiclesRoutingModule } from './vehicles/vehicles.routing';
+import { AuthGuard } from '../guards/auth.guard';
 
 
 

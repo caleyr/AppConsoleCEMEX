@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
     private userService: UserService ) { }
 
   ngOnInit(): void {
-    this.fullNameUser = `${this.userService.perfil.FirstName + ' ' + this.userService.perfil.LastName}`;
+    this.fullNameUser = `${this.userService.profileUser.FirstName + ' ' + this.userService.profileUser.LastName}`;
   }
 
   goProfile() {

@@ -8,6 +8,7 @@ import { Companies } from '../../../models/companies.model';
 import { RegisterService } from '../../../services/register.service';
 import { Admin } from '../../../interfaces/user';
 import { WebcamImage } from 'ngx-webcam';
+import { Profile } from '../../../models/profile.model';
 
 
 @Component({
@@ -43,7 +44,7 @@ export class NewUserComponent implements OnInit {
     private companiesService : CompaniesService,
     private registerService : RegisterService,
     private userService: UserService ) {
-      this.rol = this.userService.perfil.Roles;
+      this.rol = this.userService.profileUser.Roles;
     }
 
   ngOnInit(): void { 

@@ -2,14 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 // Modelos
-import { User } from '../models/user.model';
-import { catchError, map, Observable, of, tap } from 'rxjs';
-import { Rol } from '../pages/interfaces/rol';
 import { Profile } from '../models/profile.model';
 import { environment } from 'src/environments/environment';
 import { UserApprovedList } from '../interfaces/UserApprovedList';
 import { UserRequestList } from '../interfaces/UserRequestList';
 import { UserDetail } from '../interfaces/UserDetail';
+import { User } from '../pages/users/models/user';
 
 
 const BASE_URL_API = environment.urlApi;
@@ -20,116 +18,17 @@ const BASE_URL_API = environment.urlApi;
 export class UserService {
 
   user: User;
+
   id : string = null;
 
-  perfil: Profile;
-  
-  roles: Rol[] = [];
+  profileUser: Profile;
+  token : string;
+
   private keyToken = 'token';
   private keyExpiration = 'expiracion';
   private keyRoles = 'roles';  
 
   constructor( private httpClient: HttpClient ) { }
-
-  get token(): string {
-    return localStorage.getItem(this.keyToken) || '';
-  }
-
-  get headers() {
-    return {
-      headers: {
-        Authorization: `Bearer ${this.token}`
-      }
-    }
-  }
-  /* get headers() {
-    return {
-      headers: {
-        'x-token': this.token
-      }
-    }
-  } */
-
-  saveLocalStorage( resp: any ) {
-    localStorage.setItem(this.keyToken, resp.token);
-  }
-
-  login( formData ) {
-    this.saveLocalStorage( "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c" );
-    return true
-  }
-
-  validateToken(): Observable<boolean> {
-    //console.log('consulta...')
-    return this.httpClient.get( `${ BASE_URL_API }/auth/refresh-token`) 
-      .pipe(
-        map( (resp: any) => {
-          console.log('respuesta: ', resp)
-          if ( resp.powerUser ) {
-            const { document, email, firstName, id, lastName, phoneNumber, slug, userName } = resp.powerUser.user;
-            this.user = new User(document, email, firstName, id, lastName, phoneNumber, slug, userName, '', resp.roles, resp.powerUser.idPowerUser );
-          } else {
-            const { document, email, firstName, id, lastName, phoneNumber, slug, userName } = resp.user;
-            this.user = new User(document, email, firstName, id, lastName, phoneNumber, slug, userName);
-          }
-          
-          console.log('user:  ', this.user);
-          this.saveLocalStorage( resp );
-          return true;
-        }),
-        catchError( err =>  of(false) )
-      );
-  } 
-
-  obtenerRol(): string {
-    //TODO: revisar cuando trae mas de un rol
-    return this.obtenerCampoJWT(this.keyRoles);
-  }
-
-  obtenerCampoJWT(campo: string): string{
-    const token = localStorage.getItem(this.keyToken);
-
-    if ( !token ) { return ''; }
-
-    var dataToken = JSON.parse(atob(token.split('.')[1]));
-    return dataToken[campo];
-  }
-
-
-  logout(){
-    localStorage.removeItem(this.keyToken);
-    localStorage.removeItem(this.keyExpiration);
-  }
-
-  getRoles() {
-    return this.httpClient.get( `${ BASE_URL_API }/roles/list` )
-      .pipe(
-        map( (resp: Rol[])  => {
-          this.roles = resp;
-          return resp;
-        })
-      );
-  }
-
-  isLogged(): boolean {
-    const token = localStorage.getItem(this.keyToken);
-
-    if ( !token ) {
-      return false;
-    }
-
-    const expiration = this.obtenerCampoJWT(this.keyExpiration);
-    console.log('expiration: ', expiration)
-    const expirationDate = new Date(expiration);
-    console.log('expiration: ', expirationDate)
-
-    if ( expirationDate <= new Date() ) {
-      this.logout();
-      return false;
-    }
-
-    return true;
-  }
 
   getUsersApproved() {
     return this.httpClient.get<UserApprovedList[]>(`${BASE_URL_API}/api/authentication/GetAllUserApproved`);    
@@ -144,8 +43,58 @@ export class UserService {
   }
 
   activateUser(email : string, data :  any) {
-    return this.httpClient.put(`${BASE_URL_API}/api/authentication/UserActivation/${email}`, data);    
+    return this.httpClient.put(`${BASE_URL_API}/api/authentication/UserActivation/${email}`, data, {responseType: 'text'});    
   }
 
+  logout(){
+    sessionStorage.removeItem(this.keyToken);
+    sessionStorage.removeItem(this.keyExpiration);
+    sessionStorage.removeItem(this.keyRoles);
+  }
 
+  async saveDataProfile (token){    
+    this.token = token;
+    var rol = JSON.parse(window.atob(token.split('.')[1]))["Roles"];
+    var exp = JSON.parse(window.atob(token.split('.')[1]))["exp"];
+
+    await sessionStorage.setItem( this.keyRoles , rol);
+    await sessionStorage.setItem( this.keyToken , token);
+    await sessionStorage.setItem( this.keyExpiration , exp);
+  }
+
+  getDataProfile (token){
+    var profile : Profile = new Profile();
+    profile.FirstName = JSON.parse(window.atob(token.split('.')[1]))["FirstName"];
+    profile.LastName = JSON.parse(window.atob(token.split('.')[1]))["LastName"];
+    profile.Email = JSON.parse(window.atob(token.split('.')[1]))["Email"];
+    profile.CompanyId = JSON.parse(window.atob(token.split('.')[1]))["CompanyId"];
+    profile.Document = JSON.parse(window.atob(token.split('.')[1]))["Document"];
+    profile.SapCode = JSON.parse(window.atob(token.split('.')[1]))["SapCode"];
+    profile.PhoneNumber = JSON.parse(window.atob(token.split('.')[1]))["PhoneNumber"];
+    profile.Roles = JSON.parse(window.atob(token.split('.')[1]))["Roles"];
+    this.profileUser = profile;
+  }
+
+  getDataExpiration (token){
+    return JSON.parse(window.atob(token.split('.')[1]))["exp"];
+  }
+
+  isLogged(): boolean {
+    const token = sessionStorage.getItem(this.keyToken);
+
+    if ( !token ) {
+      return false;
+    }
+
+    const expiration = this.getDataExpiration(token);
+    const expirationDate = new Date(expiration * 1000);  
+
+    if ( expirationDate <= new Date() ) {
+      this.logout();
+      return false;
+    }
+
+    this.getDataProfile(token);
+    return true;
+  }
 }

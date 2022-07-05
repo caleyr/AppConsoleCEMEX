@@ -1,0 +1,84 @@
+h2.title-form {
+    margin-top: 0;
+}
+
+.input-update-user {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+.input-check-user {
+    margin-bottom: 1.4rem;
+}
+.input-radio-user{
+    margin-right: 2rem;
+}
+.loading-content {
+    top: 0;
+    width: 80%;
+}
+
+h2.style-title {
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.content-check-docs {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.input-check-docs {
+    width: 100%;
+    margin-bottom: 0.6rem;
+}
+.style-text {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.content-upload {
+    margin-bottom: 1.5rem;
+}
+
+/***  Estilos documentos  ***/
+.content-action-docs {
+    display: flex;
+    background-color: #D6D6D6;
+}
+.content-camera {
+    display: flex;
+    align-items: center;
+    padding: 5px 16px;
+    cursor: pointer;
+}
+.content-o {
+    display: flex;
+    align-items: center;
+}
+.content-file {
+    display: flex;
+    align-items: center;
+    padding: 5px 16px;
+    cursor: pointer;
+}
+
+/***  Estilos nombre archivo  ***/
+.content-file-name {
+    display: flex;
+    justify-content: space-between;
+    background-color: #d6d6d6;
+    padding: 5px 1rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.content-icon-name-file {
+    display: flex;
+    align-items: center;
+}
+.icon-cancel {
+    display: flex;
+    padding-top: 5px;
+}
+
+.content-document{
+    margin-bottom: 1.7rem;
+}

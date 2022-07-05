@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
     await this.loginService.login(this.formLogin.value).subscribe(async resp =>{
       var rol = JSON.parse(window.atob(resp['token'].split('.')[1]))["Roles"];
       if(rol === 'Administrador Logistico Cemex' || rol === 'Power User CEMEX' ){
-        this.loginService.getData(resp['token']);
+        this.userService.saveDataProfile(resp['token']);
         this.router.navigateByUrl('/dashboard');
         this.loading = false;
       }else{

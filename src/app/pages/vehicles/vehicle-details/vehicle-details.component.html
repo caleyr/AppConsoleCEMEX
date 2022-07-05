@@ -1,0 +1,96 @@
+<cwc-grid class="demo-grid">
+    <cwc-cell colspan="6" mobile-colspan="12">
+        <cwc-button (click)="location.back()" variant="link" leading-icon="arrow-left-single">Solicitudes vehiculos</cwc-button>
+        <h2 class="title-profile">Multiproducto {{vehicle.model}}</h2>
+       
+        <cwc-card class="m-all-xs" design-version="v2">
+            <div class="main-content-card">
+                <div class="header-card">
+                    <div class="avatar-info">
+                        <span class="style-name">Multiproducto {{vehicle.model}}</span>
+                    </div>                                      
+                    <div *ngIf="vehicle.statusTravel === 2">
+                        <cwc-status-indicator variant='success'>
+                            Disponible
+                        </cwc-status-indicator>
+                    </div>
+                    <div *ngIf="vehicle.statusTravel === 1">
+                        <cwc-status-indicator variant='warning'>
+                            En turno
+                        </cwc-status-indicator>
+                    </div>
+                </div>    
+
+                <hr class="line">
+
+                <cwc-grid class="demo-grid">
+                    <cwc-cell colspan="6" mobile-colspan="12">   
+                        <div class="attr-user">Modelo</div>
+                        <span>{{vehicle.model}}</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">   
+                        <div class="attr-user">Placa</div>
+                        <span>{{vehicle.licenseVehiculo}}</span>
+                    </cwc-cell>
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid center-cell">
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">Tipo de trailer</div>
+                        <span>{{vehicle.typeTrailer}}</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">  
+                        <div class="attr-user">Empresa</div>
+                        <span>{{vehicle.companyId}}</span>
+                    </cwc-cell>                    
+                </cwc-grid>
+
+                <cwc-grid class="demo-grid" >
+                    <cwc-cell colspan="6" mobile-colspan="12">
+                        <div class="attr-user">Num. de SOAT</div>
+                        <span>{{vehicle.soat}}</span>
+                    </cwc-cell>
+                    <cwc-cell colspan="6" mobile-colspan="12">  
+                        <div class="content-btn-edit">
+                            <br>
+                            <br>
+                            <cwc-button (click)="updateVehicle()" variant="link">Editar datos</cwc-button>
+                        </div> 
+                    </cwc-cell>
+                </cwc-grid>         
+            </div>
+        </cwc-card>
+
+        <cwc-card class="m-all-xs card-docs" design-version="v2">
+            <div class="main-content-card">
+                <div class="title-docs">Documentación</div>
+
+                <div class="content-docs">
+                    <div>
+                        <div class="item-archives">
+                            <cwc-icon *ngIf="vehicle.soatDocument !== null" name="check-rounded-active-fill" color="bright-green"></cwc-icon>
+                            <cwc-icon *ngIf="vehicle.soatDocument === null" name="error-rounded-fill" color="true-red"></cwc-icon>
+                            <span class="text-archive">Documento de SOAT</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon *ngIf="vehicle.technomechanicsDocument !== null" name="check-rounded-active-fill" color="bright-green"></cwc-icon>
+                            <cwc-icon *ngIf="vehicle.technomechanicsDocument === null" name="error-rounded-fill" color="true-red"></cwc-icon>
+                            <span class="text-archive">Certificado de revisión tecno mecánica</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon *ngIf="vehicle.policyDocument !== null" name="check-rounded-active-fill" color="bright-green"></cwc-icon>
+                            <cwc-icon *ngIf="vehicle.policyDocument === null" name="error-rounded-fill" color="true-red"></cwc-icon>
+                            <span class="text-archive">Póliza</span>
+                        </div>
+                        <div class="item-archives">
+                            <cwc-icon *ngIf="vehicle.cardPropertyDocument !== null" name="check-rounded-active-fill" color="bright-green"></cwc-icon>
+                            <cwc-icon *ngIf="vehicle.cardPropertyDocument === null" name="error-rounded-fill" color="true-red"></cwc-icon>
+                            <span class="text-archive">Tarjeta de propiedad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </cwc-card>
+    </cwc-cell>
+</cwc-grid>
+

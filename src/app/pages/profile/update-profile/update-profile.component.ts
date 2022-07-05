@@ -29,7 +29,7 @@ export class UpdateProfileComponent implements OnInit {
     private profileService: ProfileService ) { }
 
   ngOnInit(): void {
-    this.currentUser = this.userService.perfil;    
+    this.currentUser = this.userService.profileUser;    
     this.loadProfile();
   }
 

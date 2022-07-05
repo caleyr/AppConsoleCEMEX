@@ -1,6 +1,6 @@
 <cwc-grid class="demo-grid">
     <cwc-cell colspan="4" mobile-colspan="12">
-        <h3>Vehículos actuales (4)</h3>
+        <h3>Vehículos actuales ({{vehicleList.length}})</h3>
     </cwc-cell>
 
     <cwc-cell colspan="8" mobile-colspan="12">
@@ -21,57 +21,22 @@
                     <thead>
                         <tr>
                             <th> Modelo </th>
-                            <th> Status </th>
-                            <th> Actividad </th>                            
+                            <th> Status </th>                          
                             <th> Empresa </th>
                             <th> Placa </th>                      
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="cta">
-                            <td>Platafoma multiproducto</td>
-                            <td>Activo</td>
+                        <tr class="cta" *ngFor="let vehicle of vehicleList" (click)="detailUser(vehicle.id)">
+                            <td>{{vehicle.model}}</td>
                             <td>
                                 <cwc-status-indicator variant='alert'>
-                                    En turno
+                                    Pendiente
                                 </cwc-status-indicator>
                             </td>
-                            <td>CEMEX</td>
-                            <td>XKT-285 456</td>
-                        </tr>
-                        <tr class="cta">
-                            <td>Platafoma multiproducto</td>
-                            <td>Activo</td>
-                            <td>
-                                <cwc-status-indicator variant='alert'>
-                                    En turno
-                                </cwc-status-indicator>
-                            </td>
-                            <td>CEMEX</td>
-                            <td>XKT-285 456</td>
-                        </tr> 
-                        <tr class="cta">
-                            <td>Platafoma multiproducto</td>
-                            <td>Activo</td>
-                            <td>
-                                <cwc-status-indicator variant='alert'>
-                                    En turno
-                                </cwc-status-indicator>
-                            </td>
-                            <td>CEMEX</td>
-                            <td>XKT-285 456</td>
-                        </tr> 
-                        <tr class="cta">
-                            <td>Platafoma multiproducto</td>
-                            <td>Activo</td>
-                            <td>
-                                <cwc-status-indicator variant='alert'>
-                                    En turno
-                                </cwc-status-indicator>
-                            </td>
-                            <td>CEMEX</td>
-                            <td>XKT-285 456</td>
-                        </tr>                       
+                            <td>{{vehicle.companyId}}</td>
+                            <td>{{vehicle.licenseVehiculo}}</td>
+                        </tr>                
                     </tbody>
                 </table>
             </cwc-table-wrapper>        
